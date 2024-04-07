@@ -1,0 +1,31 @@
+.skills {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .yellow {
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+  }
+  .backstory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > p:first-of-type {
+      font-size: 24px;
+      font-weight: 400;
+      color: white;
+      > span {
+        color: #00ffff;
+      }
+    }
+    > p:last-of-type {
+      font-size: 18px;
+      font-weight: 300;
+      color: white;
+      margin-top: 16px;
+    }
+  }
+}

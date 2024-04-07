@@ -1,0 +1,37 @@
+.contact {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .blue {
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+  }
+  .for-now {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > p:first-of-type {
+      font-size: 48px;
+      font-weight: 600;
+      color: white;
+    }
+    .email {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      > p {
+        font-size: 20px;
+        font-weight: 300;
+        color: white;
+        > span {
+          color: #ccff00;
+        }
+      }
+    }
+  }
+}
