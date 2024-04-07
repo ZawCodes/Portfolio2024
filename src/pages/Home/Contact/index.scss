@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 40px;
+  box-sizing: border-box;
   .blue {
     position: absolute;
     right: 0;
@@ -13,6 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     > p:first-of-type {
       font-size: 48px;
       font-weight: 600;
@@ -30,6 +33,32 @@
         color: white;
         > span {
           color: #ccff00;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .for-now {
+      > p:first-of-type {
+        font-size: 40px;
+      }
+      .email {
+        > p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    padding: 20px;
+    .for-now {
+      > p:first-of-type {
+        font-size: 32px;
+      }
+      .email {
+        gap: 0.25rem;
+        > p {
+          font-size: 14px;
         }
       }
     }

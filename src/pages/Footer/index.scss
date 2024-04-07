@@ -2,6 +2,8 @@
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
+  padding: 40px;
+  box-sizing: border-box;
   .social {
     display: flex;
     flex-direction: row-reverse;
@@ -19,5 +21,9 @@
     font-size: 14px;
     font-weight: 200;
     color: white;
+
+    text-align: center;
+  }
+  @media only screen and (max-width: 768px) {
   }
 }

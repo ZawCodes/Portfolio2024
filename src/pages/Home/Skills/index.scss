@@ -4,6 +4,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
+
+  padding: 40px;
+  box-sizing: border-box;
   .yellow {
     position: absolute;
     left: 0;
@@ -13,6 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     > p:first-of-type {
       font-size: 24px;
       font-weight: 400;
@@ -26,6 +30,27 @@
       font-weight: 300;
       color: white;
       margin-top: 16px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .backstory {
+      > p:first-of-type {
+        font-size: 20px;
+      }
+      > p:last-of-type {
+        font-size: 16px;
+      }
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    padding: 20px;
+    .backstory {
+      > p:first-of-type {
+        font-size: 16px;
+      }
+      > p:last-of-type {
+        font-size: 14px;
+      }
     }
   }
 }
