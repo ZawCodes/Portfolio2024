@@ -21,8 +21,9 @@
       font-size: 24px;
       font-weight: 400;
       color: white;
-      > span {
+      > a {
         color: #00ffff;
+        text-decoration: none;
       }
     }
     > p:last-of-type {

@@ -11,9 +11,12 @@ const Index = () => {
         <p>That's it for now.</p>
         <div className="email">
           <p>
-            Contact me on <span>me@zawhtetaung.com</span>
+            Contact me on{" "}
+            <a href="mailto:me@zawhtetaung.com">me@zawhtetaung.com</a>
           </p>
-          <img src={whatsapp} alt="whatsapp" className="whatsapp" />
+          <a href="https://wa.me/+6581792673">
+            <img src={whatsapp} alt="whatsapp" className="whatsapp" />
+          </a>
         </div>
       </div>
     </div>

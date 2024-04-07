@@ -7,10 +7,13 @@ const Index = () => {
   return (
     <div className="footer">
       <div className="social">
-        <a>
+        <a href="https://github.com/ZawHtetAung-Zhared" target="_blank">
           <img src={github} alt="github" className="github" />
         </a>
-        <a>
+        <a
+          href="https://www.linkedin.com/in/zaw-htet-aung-zhared/"
+          target="_blank"
+        >
           <img src={linkedin} alt="linkedin" className="linkedin" />
         </a>
       </div>
