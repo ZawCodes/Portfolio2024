@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 import avatar from "./assets/avatar.png";
 import purple from "./assets/purple.png";
 import dice_one from "./assets/dice_one.png";
@@ -32,7 +33,14 @@ const Index = () => {
   return (
     <div className="welcome-section">
       <img src={purple} alt="purple" className="purple" />
-      <h1>Hi There, Welcome</h1>
+      {/* <h1>Hi There, Welcome</h1> */}
+      <h1>
+        <TypeAnimation
+          sequence={["Hi There, Welcome"]}
+          wrapper="span"
+          speed={150}
+        />
+      </h1>
       <div className="avatar-container">
         <img src={avatar} alt="avatar" />
       </div>

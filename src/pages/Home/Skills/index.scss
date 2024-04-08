@@ -12,6 +12,50 @@
     left: 0;
     pointer-events: none;
   }
+  .skill {
+    position: absolute;
+    pointer-events: none;
+  }
+  .nodejs {
+    left: 30%;
+    top: 10%;
+  }
+  .angular {
+    left: 10%;
+    top: 30%;
+  }
+  .react {
+    left: 20%;
+    bottom: 30%;
+  }
+  .js {
+    left: 15%;
+    bottom: 20%;
+  }
+  .cy {
+    left: 30%;
+    bottom: 10%;
+  }
+  .ts {
+    right: 30%;
+    top: 10%;
+  }
+  .html {
+    right: 10%;
+    top: 30%;
+  }
+  .mongodb {
+    right: 20%;
+    bottom: 30%;
+  }
+  .figma {
+    right: 15%;
+    bottom: 20%;
+  }
+  .css {
+    right: 30%;
+    bottom: 10%;
+  }
   .backstory {
     display: flex;
     flex-direction: column;
@@ -34,6 +78,9 @@
     }
   }
   @media only screen and (max-width: 768px) {
+    .skill {
+      transform: scale(0.8);
+    }
     .backstory {
       > p:first-of-type {
         font-size: 20px;
@@ -45,6 +92,9 @@
   }
   @media only screen and (max-width: 480px) {
     padding: 20px;
+    .skill {
+      transform: scale(0.6);
+    }
     .backstory {
       > p:first-of-type {
         font-size: 16px;
