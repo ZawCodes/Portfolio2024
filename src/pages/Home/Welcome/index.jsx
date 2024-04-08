@@ -33,12 +33,12 @@ const Index = () => {
   return (
     <div className="welcome-section">
       <img src={purple} alt="purple" className="purple" />
-      {/* <h1>Hi There, Welcome</h1> */}
       <h1>
         <TypeAnimation
           sequence={["Hi There, Welcome"]}
           wrapper="span"
           speed={150}
+          cursor={false}
         />
       </h1>
       <div className="avatar-container">
