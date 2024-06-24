@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
 import yellow from "./assets/yellow.png";
 import angular from "./assets/angular.png";
 import css from "./assets/css.png";
@@ -26,31 +26,18 @@ const skills = [
 ];
 
 const Index = () => {
-  const { scrollYProgress } = useScroll();
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [200, 200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-
   return (
     <div className="skills">
       <img src={yellow} alt="yellow" className="yellow" />
       {skills.map((skill, index) => (
-        <motion.img
-          style={{
-            y: y1,
-          }}
+        <img
           className={`${skill.alt} skill`}
           key={index}
           src={skill.src}
           alt={skill.alt}
         />
       ))}
-      <motion.div
-        style={{
-          y: y2,
-        }}
-        className="backstory"
-      >
+      <div className="backstory">
         <p>
           I've been creating websites for a few years now since I graduated from
           my{" "}
@@ -60,7 +47,7 @@ const Index = () => {
           .
         </p>
         <p>Since 2019 to be exact.</p>
-      </motion.div>
+      </div>
     </div>
   );
 };

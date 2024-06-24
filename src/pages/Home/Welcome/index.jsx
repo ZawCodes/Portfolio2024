@@ -33,7 +33,7 @@ const Index = () => {
   return (
     <div className="welcome-section">
       <img src={purple} alt="purple" className="purple" />
-      <h1>
+      <h1 className="cursor-scale">
         <TypeAnimation
           sequence={["Hi There, Welcome"]}
           wrapper="span"
@@ -42,10 +42,10 @@ const Index = () => {
         />
       </h1>
       <div className="avatar-container">
-        <img src={avatar} alt="avatar" />
+        <img className="cursor-scale" src={avatar} alt="avatar" />
       </div>
       <div className="info-container">
-        <h2>
+        <h2 className="cursor-scale">
           My Name is <span className="neon-lime">Zaw Htet Aung</span>
         </h2>
         <div className="dice-options">
