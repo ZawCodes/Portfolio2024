@@ -3,7 +3,6 @@ import Welcome from "./Welcome";
 import Skills from "./Skills";
 import Resume from "./Resume";
 import Contact from "./Contact";
-import Footer from "pages/Footer";
 import "./index.scss";
 
 const Index = () => {
@@ -13,7 +12,6 @@ const Index = () => {
       <Skills />
       <Resume />
       <Contact />
-      <Footer />
     </section>
   );
 };

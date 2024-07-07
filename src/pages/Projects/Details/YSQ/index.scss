@@ -1,0 +1,25 @@
+.Ysq-container {
+  .image-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 60px;
+    .img-wrap {
+      width: 100%;
+      img {
+        width: 50%;
+      }
+    }
+  }
+  .desc {
+    p {
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      line-height: 1.5;
+    }
+    .tech {
+      font-size: 30px;
+    }
+  }
+}

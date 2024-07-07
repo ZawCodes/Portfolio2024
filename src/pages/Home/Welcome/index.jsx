@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import avatar from "./assets/avatar.png";
 import purple from "./assets/purple.png";
@@ -11,10 +12,10 @@ import dice_six from "./assets/dice_six.png";
 import "./index.scss";
 
 const optionsWithDice = [
-  { option: "But you can call me Zaw.", dice: dice_one },
+  { option: "You can call me Zaw.", dice: dice_one },
   { option: "A 26 years old Frontend Developer.", dice: dice_two },
-  { option: "Angular and React are my main things.", dice: dice_three },
-  { option: "Loves making websites.", dice: dice_four },
+  { option: "Been in the industry since 2019", dice: dice_three },
+  { option: "This website is a playground", dice: dice_four },
   { option: "I love cats and video games.", dice: dice_five },
   { option: "This website is not done yet.", dice: dice_six },
 ];
@@ -57,6 +58,11 @@ const Index = () => {
           />
         </div>
       </div>
+      {/* <ul className="nav">
+        <li>
+          <Link to="/projects">Recent Projects</Link>
+        </li>
+      </ul> */}
     </div>
   );
 };
