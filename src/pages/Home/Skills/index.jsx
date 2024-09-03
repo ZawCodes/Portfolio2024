@@ -39,8 +39,8 @@ const Index = () => {
       ))}
       <div className="backstory">
         <p>
-          I've been creating websites for a few years now since I graduated from
-          my{" "}
+          I've been creating websites professionally for a few years now since I
+          graduated from my{" "}
           <a href="https://www.uit.edu.mm/" target="_blank">
             university
           </a>

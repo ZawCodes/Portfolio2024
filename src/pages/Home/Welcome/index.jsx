@@ -15,7 +15,7 @@ const optionsWithDice = [
   { option: "You can call me Zaw.", dice: dice_one },
   { option: "A 26 years old Frontend Developer.", dice: dice_two },
   { option: "Been in the industry since 2019", dice: dice_three },
-  { option: "This website is a playground", dice: dice_four },
+  { option: "Thanks for visiting my website!", dice: dice_four },
   { option: "I love cats and video games.", dice: dice_five },
   { option: "This website is not done yet.", dice: dice_six },
 ];
