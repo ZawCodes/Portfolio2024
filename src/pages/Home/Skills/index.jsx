@@ -39,7 +39,7 @@ const Index = () => {
       ))}
       <div className="backstory">
         <p>
-          I've been creating websites professionally for a few years now since I
+          I've been working professionally as a front end developer since I
           graduated from my{" "}
           <a href="https://www.uit.edu.mm/" target="_blank">
             university

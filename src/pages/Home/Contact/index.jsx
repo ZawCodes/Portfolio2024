@@ -8,7 +8,7 @@ const Index = () => {
     <div className="contact">
       <img src={blue} alt="blue" className="blue" />
       <div className="for-now">
-        <p>That's it for now.</p>
+        <p>Want to learn more?</p>
         <div className="email">
           <p>
             Contact me on{" "}

@@ -9,9 +9,9 @@ const Index = () => {
   return (
     <section className="home">
       <Welcome />
-      <Skills />
-      <Resume />
-      <Contact />
+      {/* <Skills /> */}
+      {/* <Resume />
+      <Contact /> */}
     </section>
   );
 };

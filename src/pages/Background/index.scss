@@ -1,0 +1,149 @@
+$primary-color: #7c7c7c;
+$secondary-color: #d6d6d6;
+$techy-blue: #4a90e2;
+$techy-orange: #ff6b35;
+$max-width: 1200px;
+
+.background-container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 7rem;
+
+  h1,
+  h2 {
+    font-size: 2rem;
+    color: $secondary-color;
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: $techy-orange;
+      margin: 16px auto 0;
+    }
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 64px;
+    margin-bottom: 48px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: $techy-blue;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $primary-color;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .intro {
+    font-style: italic;
+    color: $secondary-color;
+    max-width: 80%;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .education-section,
+  .career-section {
+    margin-top: 80px;
+
+    .education-item,
+    .career-item {
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #4e4e4e;
+
+      .split {
+        display: flex;
+        gap: 32px;
+
+        .left {
+          flex: 70%;
+        }
+
+        .right {
+          flex: 30%;
+        }
+      }
+
+      .school-image {
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.03);
+          }
+        }
+      }
+
+      .fun-fact {
+        font-style: italic;
+        font-size: 0.95rem;
+        background-color: rgba($techy-blue, 0.05);
+        padding: 16px;
+        border-radius: 4px;
+        margin-top: 24px;
+        border-left: 3px solid $techy-blue;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px;
+    margin-top: 48px;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+    }
+    p {
+      font-size: 0.95rem;
+    }
+
+    .intro {
+      max-width: 100%;
+    }
+
+    .education-section,
+    .career-section {
+      margin-top: 48px;
+
+      .education-item,
+      .career-item {
+        margin-bottom: 48px;
+        padding-bottom: 32px;
+
+        .split {
+          flex-direction: column;
+        }
+
+        .school-image {
+          order: -1;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}

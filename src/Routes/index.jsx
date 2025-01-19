@@ -1,38 +1,43 @@
 import React from "react";
-import { Suspense } from "react";
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "pages/Home";
+import Header from "pages/Header";
 import Footer from "pages/Footer";
 
 // Lazy-loaded components
+const Background = lazy(() => import("pages/Background"));
 const Projects = lazy(() => import("pages/Projects"));
-const LoanEstates = lazy(() => import("pages/Projects/Details/LoanEstates"));
-const Hunnworld = lazy(() => import("pages/Projects/Details/Hunnworld"));
-const YSQ = lazy(() => import("pages/Projects/Details/YSQ"));
-const ParisTobacco = lazy(() => import("pages/Projects/Details/ParisTobacco"));
-const Lighthouse = lazy(() => import("pages/Projects/Details/Lighthouse"));
-const Classwerkz = lazy(() => import("pages/Projects/Details/Classwerkz"));
-const Nodma = lazy(() => import("pages/Projects/Details/Nodma"));
-const Stemwerkz = lazy(() => import("pages/Projects/Details/Stemwerkz"));
+const Blogs = lazy(() => import("pages/Blogs"));
+const Contact = lazy(() => import("pages/Contact"));
+const LearningFlowAi = lazy(() => import("pages/ProjectDetail/LearningFlowAi"));
+const Loansestate = lazy(() => import("pages/ProjectDetail/Loansestate"));
+const Hunnworld = lazy(() => import("pages/ProjectDetail/Hunnworld"));
+const Lighthouse = lazy(() => import("pages/ProjectDetail/Lighthouse"));
+const YsqInternational = lazy(() =>
+  import("pages/ProjectDetail/YsqInternational")
+);
+const Stemwerkz = lazy(() => import("pages/ProjectDetail/Stemwerkz"));
 
 const Index = () => {
   return (
     <BrowserRouter basename="/">
       <Suspense fallback={<div>Loading...</div>}>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />}>
-            <Route path="" element={<Navigate to="loansestate" replace />} />
-            <Route path="loansestate" element={<LoanEstates />} />
+          <Route path="/background" element={<Background />} />
+          <Route path="/projects">
+            <Route path="" element={<Projects />} />
+            <Route path="learning-flow-ai" element={<LearningFlowAi />} />
+            <Route path="loansestate" element={<Loansestate />} />
             <Route path="hunnworld" element={<Hunnworld />} />
-            <Route path="ysq" element={<YSQ />} />
-            <Route path="paristobacco" element={<ParisTobacco />} />
             <Route path="lighthouse" element={<Lighthouse />} />
-            <Route path="classwerkz" element={<Classwerkz />} />
-            <Route path="nodma" element={<Nodma />} />
+            <Route path="ysq-international" element={<YsqInternational />} />
             <Route path="stemwerkz" element={<Stemwerkz />} />
           </Route>
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
         </Routes>
         <Footer />
       </Suspense>

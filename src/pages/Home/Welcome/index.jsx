@@ -33,36 +33,24 @@ const Index = () => {
 
   return (
     <div className="welcome-section">
-      <img src={purple} alt="purple" className="purple" />
-      <h1 className="cursor-scale">
-        <TypeAnimation
-          sequence={["Hi There, Welcome"]}
-          wrapper="span"
-          speed={150}
-          cursor={false}
-        />
-      </h1>
+      {/* <img src={purple} alt="purple" className="purple" /> */}
+
       <div className="avatar-container">
-        <img className="cursor-scale" src={avatar} alt="avatar" />
+        <img
+          className="cursor-scale"
+          src={
+            "https://media.licdn.com/dms/image/v2/D5603AQGxjd2go5CXIQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1673363912775?e=1741824000&v=beta&t=IZhpF4W-2edHkl2yX-F1G3_BIFlZ-VTO_Ho2JJHxpnc"
+          }
+          alt="avatar"
+        />
       </div>
       <div className="info-container">
         <h2 className="cursor-scale">
-          My Name is <span className="neon-lime">Zaw Htet Aung</span>
+          I'm <span className="techy-orange">Zaw</span>
         </h2>
-        <div className="dice-options">
-          <p>{optionsWithDice[factIndex].option}</p>
-          <img
-            src={optionsWithDice[factIndex].dice}
-            onClick={handleDiceClick}
-            alt="dice"
-          />
-        </div>
+
+        <h4>A front end developer and content creator.</h4>
       </div>
-      {/* <ul className="nav">
-        <li>
-          <Link to="/projects">Recent Projects</Link>
-        </li>
-      </ul> */}
     </div>
   );
 };

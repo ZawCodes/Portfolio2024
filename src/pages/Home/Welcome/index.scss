@@ -4,7 +4,7 @@
   padding: 40px;
   padding-top: 136px;
   box-sizing: border-box;
-  min-height: 100vh;
+  min-height: 73vh;
   .purple {
     position: absolute;
     right: 0;
@@ -25,9 +25,12 @@
     align-items: center;
     justify-content: center;
     margin-top: 86px;
+
     img {
       width: 100%;
-      max-width: 300px;
+      max-width: 150px;
+      border-radius: 50%;
+      border: 2px solid #4a90e2;
     }
   }
   .info-container {
@@ -57,7 +60,15 @@
         height: 14px;
       }
     }
+    h4 {
+      color: white;
+      font-size: 18px;
+      font-weight: 300;
+
+      margin-top: 2rem;
+    }
   }
+
   .nav {
     position: absolute;
     right: 40px;
