@@ -1,4 +1,5 @@
 import React from "react";
+import LF from "./assets/lf.jpg";
 import FlowSample from "./assets/flowSample.jpg";
 import FlowSample2 from "./assets/flowSample2.jpg";
 import ViewerSample from "./assets/viewerSample.jpg";
@@ -9,10 +10,7 @@ const ProjectDetail = () => {
     <div className="project-detail-container">
       <h1>Learning Flow AI</h1>
       <div className="project-image">
-        <img
-          src="https://www.learningflow.ai/wp-content/uploads/2024/06/learningFlow_featureimage.png"
-          alt="Learning Flow AI"
-        />
+        <img src={LF} alt="Learning Flow AI" />
       </div>
       <div className="project-info">
         <div className="tags">

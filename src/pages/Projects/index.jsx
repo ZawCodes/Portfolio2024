@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import LF from "./assets/lf.jpg";
 import LE from "./assets/le.jpg";
 import HW from "./assets/hw.jpg";
 import LH from "./assets/lh.jpg";
@@ -14,8 +15,7 @@ const projectsData = [
     title: "Learning Flow Ai",
     description:
       "An AI-powered platform that enables teachers to create customized lessons while helping students learn through personalized learning paths and progress tracking.",
-    image:
-      "https://www.learningflow.ai/wp-content/uploads/2024/06/learningFlow_featureimage.png",
+    image: LF,
     tags: ["React", "Vite", "Tailwind", "Zustand", "ContextAPI", "NestJS"],
     organization: "Amdon",
     type: "Professional",
