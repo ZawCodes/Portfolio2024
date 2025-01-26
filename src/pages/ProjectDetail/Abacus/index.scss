@@ -1,0 +1,209 @@
+$primary-color: #d6d6d6;
+$secondary-color: #a0a0a0;
+$accent-color: #4a90e2;
+$max-width: 1200px;
+
+.project-detail-container {
+  max-width: $max-width;
+  margin: 7rem auto 0;
+  padding: 2rem;
+  border-radius: 8px;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: $accent-color;
+      margin: 1rem auto 0;
+    }
+  }
+
+  .project-image {
+    margin-bottom: 2rem;
+
+    img {
+      width: 100%;
+      max-height: 600px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  .project-info {
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+
+      .tag {
+        background-color: $accent-color;
+        color: #ffffff;
+        font-size: 0.9rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($accent-color, 10%);
+        }
+      }
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: $primary-color;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .metadata {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      p {
+        font-size: 1rem;
+        color: $secondary-color;
+        margin-bottom: 0.5rem;
+        flex: 1 1 30%;
+      }
+    }
+
+    .project-details,
+    .project-challenges,
+    .project-role,
+    .project-outcome {
+      margin-bottom: 2rem;
+
+      h2 {
+        font-size: 1.5rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid $accent-color;
+        padding-bottom: 0.5rem;
+      }
+
+      h3 {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        color: $accent-color;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+      li {
+        margin-bottom: 1rem;
+      }
+
+      p,
+      li {
+        font-size: 1rem;
+        color: $secondary-color;
+        line-height: 1.6;
+      }
+
+      ul {
+        padding-left: 1.5rem;
+        list-style: circle;
+      }
+      .figure-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0 4rem;
+        > div {
+          width: 48%;
+          text-align: center;
+          label {
+            display: inline-block;
+            font-size: 14px;
+            color: $primary-color;
+            margin-top: 1rem;
+          }
+          img {
+            width: 100%;
+            height: 80%;
+            border-radius: 6px;
+
+            border: 1px solid $accent-color;
+          }
+        }
+      }
+    }
+
+    .tech-stack {
+      margin-top: 1.5rem;
+
+      h3 {
+        font-size: 1.2rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+          display: flex;
+          align-items: center;
+          font-size: 1rem;
+          color: $secondary-color;
+
+          img {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .project-image img {
+      max-height: 300px;
+    }
+
+    .project-info {
+      .description {
+        font-size: 1rem;
+      }
+
+      .project-details,
+      .project-challenges,
+      .project-role {
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        p,
+        li {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

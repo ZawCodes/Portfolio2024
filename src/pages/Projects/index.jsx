@@ -6,6 +6,7 @@ import HW from "./assets/hw.jpg";
 import LH from "./assets/lh.jpg";
 import YSQ from "./assets/ysq.jpg";
 import SW from "./assets/sw.jpg";
+import ABACUS from "./assets/abacus.jpg";
 import "./index.scss";
 
 const projectsData = [
@@ -73,6 +74,17 @@ const projectsData = [
     image: SW,
     tags: ["Angular", "CSS", "Node.js"],
     organization: "Amdon",
+    type: "Professional",
+  },
+  {
+    id: 7,
+    path: "abacus",
+    title: "Abacus",
+    description:
+      "Abacus is an internal company tool used for calculating the cost of lab materials in manufacturing and research processes.",
+    image: ABACUS,
+    tags: ["React", "Vite", "SCSS", "ContextAPI", "PHP"],
+    organization: "YSQ",
     type: "Professional",
   },
 ];

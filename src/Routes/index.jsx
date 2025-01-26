@@ -18,6 +18,7 @@ const YsqInternational = lazy(() =>
   import("pages/ProjectDetail/YsqInternational")
 );
 const Stemwerkz = lazy(() => import("pages/ProjectDetail/Stemwerkz"));
+const Abacus = lazy(() => import("pages/ProjectDetail/Abacus"));
 
 const Index = () => {
   return (
@@ -35,6 +36,7 @@ const Index = () => {
             <Route path="lighthouse" element={<Lighthouse />} />
             <Route path="ysq-international" element={<YsqInternational />} />
             <Route path="stemwerkz" element={<Stemwerkz />} />
+            <Route path="abacus" element={<Abacus />} />
           </Route>
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
