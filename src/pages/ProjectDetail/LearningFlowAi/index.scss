@@ -133,8 +133,10 @@ $max-width: 1200px;
             color: $primary-color;
             margin-top: 1rem;
           }
-          img {
+          img,
+          video {
             width: 100%;
+            height: auto;
             border-radius: 6px;
 
             border: 1px solid $accent-color;

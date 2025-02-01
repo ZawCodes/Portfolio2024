@@ -7,6 +7,7 @@ import LH from "./assets/lh.jpg";
 import YSQ from "./assets/ysq.jpg";
 import SW from "./assets/sw.jpg";
 import ABACUS from "./assets/abacus.jpg";
+import PT from "./assets/pt.jpg";
 import "./index.scss";
 
 const projectsData = [
@@ -83,6 +84,17 @@ const projectsData = [
     description:
       "Abacus is an internal company tool used for calculating the cost of lab materials in manufacturing and research processes.",
     image: ABACUS,
+    tags: ["React", "Vite", "SCSS", "ContextAPI", "PHP"],
+    organization: "YSQ",
+    type: "Professional",
+  },
+  {
+    id: 8,
+    path: "paris-tobacco",
+    title: "Paris Tobacco",
+    description:
+      "A company website for a branch based in Poland that serves as a landing page, provides information about the company, and displays contact details.",
+    image: PT,
     tags: ["React", "Vite", "SCSS", "ContextAPI", "PHP"],
     organization: "YSQ",
     type: "Professional",

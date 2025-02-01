@@ -1,8 +1,8 @@
 import React from "react";
 import LF from "./assets/lf.jpg";
-import FlowSample from "./assets/flowSample.jpg";
-import FlowSample2 from "./assets/flowSample2.jpg";
-import ViewerSample from "./assets/viewerSample.jpg";
+import FlowSample from "./assets/flow_sample1.mp4";
+import FlowSample2 from "./assets/flow_sample2.mp4";
+import ViewerSample from "./assets/viewer_sample.mp4";
 import "./index.scss";
 
 const ProjectDetail = () => {
@@ -50,11 +50,15 @@ const ProjectDetail = () => {
           <h3>Editor</h3>
           <div className="figure-container">
             <div>
-              <img src={FlowSample} alt="flow sample" />
+              <video autoPlay loop muted playsInline>
+                <source src={FlowSample} type="video/mp4" />
+              </video>
               <label>Empty flow sample</label>
             </div>
             <div>
-              <img src={FlowSample2} alt="flow sample 2" />
+              <video autoPlay loop muted playsInline>
+                <source src={FlowSample2} type="video/mp4" />
+              </video>
               <label>KnowledgeBot flow sample</label>
             </div>
           </div>
@@ -65,7 +69,9 @@ const ProjectDetail = () => {
           <h3>Viewer</h3>
           <div className="figure-container">
             <div>
-              <img src={ViewerSample} alt="viewer sample" />
+              <video autoPlay loop muted playsInline>
+                <source src={ViewerSample} type="video/mp4" />
+              </video>
               <label>KnowledgeBot in Viewer</label>
             </div>
           </div>
