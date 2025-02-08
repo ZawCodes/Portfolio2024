@@ -20,6 +20,7 @@ const YsqInternational = lazy(() =>
 const Stemwerkz = lazy(() => import("pages/ProjectDetail/Stemwerkz"));
 const Abacus = lazy(() => import("pages/ProjectDetail/Abacus"));
 const ParisTobacco = lazy(() => import("pages/ProjectDetail/ParisTobacco"));
+const Qeen = lazy(() => import("pages/ProjectDetail/Qeen"));
 
 const Index = () => {
   return (
@@ -39,6 +40,7 @@ const Index = () => {
             <Route path="stemwerkz" element={<Stemwerkz />} />
             <Route path="abacus" element={<Abacus />} />
             <Route path="paris-tobacco" element={<ParisTobacco />} />
+            <Route path="qeen" element={<Qeen />} />
           </Route>
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />

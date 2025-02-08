@@ -18,7 +18,7 @@ const Index = () => {
         </a>
       </div>
       <div className="copyright">
-        <p>© 2024 designed and built by Zaw Htet Aung</p>
+        <p>© 2025 designed and built by Zaw Htet Aung</p>
       </div>
     </div>
   );

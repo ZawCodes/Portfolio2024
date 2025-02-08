@@ -8,6 +8,7 @@ import YSQ from "./assets/ysq.jpg";
 import SW from "./assets/sw.jpg";
 import ABACUS from "./assets/abacus.jpg";
 import PT from "./assets/pt.jpg";
+import QEEN from "./assets/qeen.jpg";
 import "./index.scss";
 
 const projectsData = [
@@ -95,6 +96,17 @@ const projectsData = [
     description:
       "A company website for a branch based in Poland that serves as a landing page, provides information about the company, and displays contact details.",
     image: PT,
+    tags: ["React", "Vite", "SCSS", "ContextAPI", "PHP"],
+    organization: "YSQ",
+    type: "Professional",
+  },
+  {
+    id: 9,
+    path: "qeen",
+    title: "Qeen",
+    description:
+      "A website to showcase Qeen heated tobacco devices and heated tobacco stick products for customers and distributors.",
+    image: QEEN,
     tags: ["React", "Vite", "SCSS", "ContextAPI", "PHP"],
     organization: "YSQ",
     type: "Professional",
