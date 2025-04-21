@@ -119,8 +119,8 @@ const Index = () => {
     {
       year: "2024",
       description: [
-        "Despite doing my best, I couldn't keep up with the fast-paced and unpredictable nature of the organization and its management. When some of the key people responsible for the stability of my position left, I ended up losing my job as well.",
-        "I then joined a project at the invitation of a former colleague and worked on a CRM system called Loans Estate for a consulting firm named Loan$upermart.",
+        "When some of the key figures who had helped maintain the stability of my position left, I eventually lost my position as well, since I was still developing the skills needed to navigate such a fast-changing environment.",
+        "I then joined a project at the invitation of a former colleague and worked on a CRM system called Loans Estate for a consulting firm named Loan$upermart for a brief duration.",
       ],
       funFact:
         "I have reflected on the events that happened and am now better equipped with the skills necessary for success and survival.",
@@ -131,13 +131,13 @@ const Index = () => {
         "I moved to Bangkok as Myanmar was still unsafe to return to. I then rejoined my previous company, the Amdon Group, as a front-end developer, working remotely.",
       ],
       funFact:
-        "I'm currently learning Japanese and Thai while also working on becoming a content creator as a side hustle to complement my main profession.",
+        "I'm currently learning Japanese with the hope of migrating to Japan in the future.",
     },
   ];
 
   return (
     <div className="background-container">
-      <h1>My Story So Far</h1>
+      <h1>A little back story</h1>
       <p className="intro">
         I was born in Myanmar and am now 27 years old as of 2025. I'd love to
         share a bit about my journey so far so you can get to know me better.

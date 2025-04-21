@@ -18,7 +18,7 @@ const Contact = () => {
           <FaWhatsapp className="contact-icon" />
           <div className="contact-details">
             <h2>WhatsApp</h2>
-            <a href="https://wa.me/81792673">+65 8179 2673</a>
+            <a href="https://wa.me/81792673">+65 82832537</a>
             <a href="https://wa.me/0946481514">+66 9464 81514</a>
           </div>
         </div>
