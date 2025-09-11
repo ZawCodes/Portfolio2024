@@ -8,7 +8,6 @@ import Footer from "pages/Footer";
 // Lazy-loaded components
 const Background = lazy(() => import("pages/Background"));
 const Projects = lazy(() => import("pages/Projects"));
-const Blogs = lazy(() => import("pages/Blogs"));
 const Contact = lazy(() => import("pages/Contact"));
 const LearningFlowAi = lazy(() => import("pages/ProjectDetail/LearningFlowAi"));
 const Loansestate = lazy(() => import("pages/ProjectDetail/Loansestate"));
@@ -42,7 +41,6 @@ const Index = () => {
             <Route path="paris-tobacco" element={<ParisTobacco />} />
             <Route path="qeen" element={<Qeen />} />
           </Route>
-          <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
         </Routes>
         <Footer />

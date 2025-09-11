@@ -4,8 +4,8 @@ import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <div className="contact-container">
-      <h1>Get in Touch</h1>
+    <div className="contact-container page">
+      <h1 className="page-title">Get in Touch</h1>
       <div className="contact-info">
         <div className="contact-item">
           <FaEnvelope className="contact-icon" />

@@ -5,7 +5,8 @@ import "./index.scss";
 const Index = () => {
   return (
     <div className="welcome-section">
-      <div className="avatar-container">
+      <div className="wrapper">
+        <div className="avatar-container">
         <img className="cursor-scale" src={ME} alt="avatar" />
       </div>
       <div className="info-container">
@@ -13,7 +14,8 @@ const Index = () => {
           I'm <span className="techy-orange">Zaw</span>
         </h2>
 
-        <h4>A front end developer and content creator.</h4>
+        <h4>Experienced front-end developer since 2019.</h4>
+      </div>
       </div>
     </div>
   );

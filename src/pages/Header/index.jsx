@@ -36,11 +36,6 @@ const Index = () => {
             </Link>
           </li>
           <li>
-            <Link to="/blogs" onClick={toggleMenu}>
-              Blogs
-            </Link>
-          </li>
-          <li>
             <Link to="/contact" onClick={toggleMenu}>
               Contact
             </Link>

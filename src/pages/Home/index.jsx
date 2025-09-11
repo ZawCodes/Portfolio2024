@@ -4,7 +4,7 @@ import "./index.scss";
 
 const Index = () => {
   return (
-    <section className="home">
+  <section className="home">
       <Welcome />
     </section>
   );

@@ -45,31 +45,33 @@ const CareerItem = ({ year, description, funFact, imageSrc, imageAlt }) => (
 );
 
 const Index = () => {
+  // Dynamically compute age (birth year inferred from original text: 27 in 2025 -> 1998)
+  const currentAge = new Date().getFullYear() - 1998;
   const educationData = [
     {
       year: "2003-2014",
       description:
         "From primary school through high school graduation, I completed my entire academic journey at Basic Education High School Ahlone 4.",
       funFact:
-        "For most of my school years, I was in Section A and was fortunate to earn distinctions in 5 out of 6 subjects in the matriculation exam. It may not seem like much, but it's something I'm still proud of.",
+  "For most of my school years, I was in Section A and earned distinctions in 5 of 6 subjects in the matriculation exam—a milestone I'm proud of.",
     },
     {
       year: "2014-2015",
       description:
         "After graduating, I attended a Level 4 Diploma in Computing course at a local computer training center called KMD.",
       funFact:
-        "They offered full scholarships to students who achieved 5 or more distinctions, so I thought, why not?",
+  "The program offered full scholarships to students with 5 or more distinctions, which motivated me to enroll.",
       imageSrc: L4DC,
       imageAlt: "Basic Education High School Ahlone 4",
     },
     {
       year: "2014-2019",
       description: [
-        "I chose to pursue a career in Computer Science because the idea of working in front of a computer in an air-conditioned room sounded appealing.",
-        "Thus, I enrolled at the University of Information Technology, where I majored in Computer Science and Software Engineering.",
+  "I chose to pursue Computer Science because I was drawn to technology's blend of logic, creativity, and impact.",
+  "I enrolled at the University of Information Technology, majoring in Computer Science and Software Engineering.",
       ],
       funFact:
-        "As someone who enjoys gaming and has a passion for drawing, pursuing Computer Science felt like a natural fit for me. I've always enjoyed creating things, and building websites seemed to align perfectly with my interests.",
+  "With interests in gaming, drawing, and building things, Computer Science felt like a natural fit—especially front-end development where creativity meets engineering.",
       imageSrc: UIT,
       imageAlt: "University of Information Technology",
     },
@@ -79,79 +81,78 @@ const Index = () => {
     {
       year: "2018",
       description:
-        "During my 4th year at university, I did a one-month field study at a small local company called Base. It was there that I experienced working in an office for the first time.",
+  "In my 4th year, I completed a one-month field study at a local company called Base—my first exposure to a professional office environment.",
       funFact:
-        "I was tasked with using Python to web crawl local news websites.",
+  "I built Python scripts to crawl local news websites.",
     },
     {
       year: "2019",
       description: [
-        "In the second half of my final year at university, I passed my school interview and was given the opportunity to do a 4-month internship at a local company called DIR ACE Technology.",
+    "In the second half of my final year at university, I passed an internal interview and was offered a 4‑month internship at a local company called DIR ACE Technology.",
         "DIR-ACE Technology Ltd. (DAT) is a collaboration between Japan's DIR and Myanmar's ACE, providing IT solutions for financial markets.",
       ],
       funFact:
-        "I was part of a team made up of students from different universities, and together we created a small website for viewing matriculation results as part of our internship project, using Java Spring Boot. I took on the role of front-end developer.",
+    "I was part of a team of students from multiple universities, and together we created a website for viewing matriculation results using Java Spring Boot. I focused on the front-end.",
       imageSrc: DAT,
       imageAlt: "Dir Ace Technology",
     },
     {
       year: "2019-2022",
       description: [
-        "After my internship, I decided to apply to Werkz Technology, also known as Amdon. It was a convenient choice since the office was very close to my home, and I also wanted the opportunity to work in Singapore.",
-        "I officially started my career as a front-end developer at the Amdon Group.",
+  "After the internship, I joined Werkz Technology (Amdon), motivated by growth potential and the chance to collaborate regionally, including with the Singapore team.",
+  "I officially started my career as a front-end developer at the Amdon Group.",
       ],
       funFact:
-        "Between choosing Japan and Singapore as a career path after graduating, I decided to pursue the Singapore path because working there had always been one of my dreams.",
+  "I chose the Singapore pathway after graduation—working there had long been a goal of mine.",
       imageSrc: Amdon,
       imageAlt: "Amdon",
     },
     {
       year: "2022-2024",
       description: [
-        "Due to the coup that occurred in 2021, I began seeking better opportunities abroad. In August 2022, I visited Singapore for the first time and was fortunate to join YSQ International as a front-end developer.",
-        "Leaving home and going abroad for the first time, as well as speaking English (or rather, Singlish), was challenging at first. However, I learned a lot along the way and gained many new experiences.",
+  "Amid significant changes at home in 2021, I began exploring international opportunities. In August 2022, I relocated to Singapore and joined YSQ International as a front-end developer.",
+  "It was my first time living abroad and adapting to a new working culture and language style (including Singlish), and the experience accelerated both my technical and interpersonal growth.",
       ],
       funFact:
-        "As the sole front-end developer, I developed over a dozen company websites alongside my manager, who handled the backend, over the course of 1 year and 7 months.",
+  "As the sole front-end developer, I partnered with a backend lead to deliver 12+ company websites in 1 year and 7 months.",
       imageSrc: Ysq,
       imageAlt: "YSQ International",
     },
     {
       year: "2024",
       description: [
-        "When some of the key figures who had helped maintain the stability of my position left, I eventually lost my position as well, since I was still developing the skills needed to navigate such a fast-changing environment.",
-        "I then joined a project at the invitation of a former colleague and worked on a CRM system called Loans Estate for a consulting firm named Loan$upermart for a brief duration.",
+  "Following organizational shifts and team transitions, my role concluded during a company restructuring.",
+  "Soon after, I briefly contributed to the Loans Estate CRM project for the consulting firm Loan$upermart.",
       ],
       funFact:
-        "I have reflected on the events that happened and am now better equipped with the skills necessary for success and survival.",
+  "The period strengthened my adaptability and clarified the environments where I create the most value.",
     },
     {
       year: "2024-current",
       description: [
-        "I moved to Bangkok as Myanmar was still unsafe to return to. I then rejoined my previous company, the Amdon Group, as a front-end developer, working remotely.",
+  "I relocated to Bangkok and rejoined the Amdon Group as a remote front-end developer.",
       ],
       funFact:
-        "I'm currently learning Japanese with the hope of migrating to Japan in the future.",
+  "I'm currently studying Japanese and exploring future opportunities in Japan.",
     },
   ];
 
   return (
-    <div className="background-container">
-      <h1>A little back story</h1>
-      <p className="intro">
-        I was born in Myanmar and am now 27 years old as of 2025. I'd love to
-        share a bit about my journey so far so you can get to know me better.
+    <div className="background-container page">
+      <h1 className="page-title">A little back story</h1>
+      <p className="intro page-intro">
+        I was born in Myanmar and I'm currently {currentAge}. I'd love to share a bit of my journey so you can get to know me better.
       </p>
 
       <section className="education-section">
-        <h2>Education</h2>
+        <h2 className="section-title">Education</h2>
         {educationData.map((item, index) => (
           <EducationItem key={index} {...item} />
         ))}
       </section>
 
       <section className="career-section">
-        <h2>Working experiences</h2>
+        <h2 className="section-title">Working experiences</h2>
         {careerData.map((item, index) => (
           <CareerItem key={index} {...item} />
         ))}

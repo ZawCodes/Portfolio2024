@@ -172,11 +172,10 @@ const Projects = () => {
   );
 
   return (
-    <div className="projects-container">
-      <h1>My Projects</h1>
-      <p className="intro">
-        Here are some of the projects I've worked on. I'm still gradually adding
-        in more entries as of now.
+    <div className="projects-container page">
+      <h1 className="page-title">My Projects</h1>
+      <p className="intro page-intro">
+        Here are some of the projects I've worked on. I'm still gradually adding in more entries as of now.
       </p>
 
       <FilterButtons

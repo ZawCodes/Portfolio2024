@@ -5,55 +5,23 @@ $techy-orange: #ff6b35;
 $max-width: 1200px;
 
 .background-container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 2rem;
-  border-radius: 8px;
-  margin-top: 7rem;
-
-  h1,
-  h2 {
-    font-size: 2rem;
-    color: $secondary-color;
-    text-align: center;
-    margin-bottom: 32px;
-    position: relative;
-
-    &::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: $techy-orange;
-      margin: 16px auto 0;
-    }
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    margin-top: 64px;
-    margin-bottom: 48px;
-  }
+  /* Base sizing now handled by global .page & title utilities */
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: $techy-blue;
-    margin-bottom: 16px;
+    margin-bottom: 0.75rem;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: $primary-color;
     line-height: 1.7;
-    margin-bottom: 24px;
+    margin-bottom: 1.2rem;
   }
 
   .intro {
     font-style: italic;
-    color: $secondary-color;
-    max-width: 80%;
-    margin: 0 auto 48px;
-    text-align: center;
   }
 
   .education-section,
@@ -106,43 +74,17 @@ $max-width: 1200px;
   }
 
   @media (max-width: 768px) {
-    padding: 24px;
-    margin-top: 48px;
-
-    h1 {
-      font-size: 1.8rem;
-    }
-    h2 {
-      font-size: 1.6rem;
-    }
-    h3 {
-      font-size: 1.3rem;
-    }
-    p {
-      font-size: 0.95rem;
-    }
-
-    .intro {
-      max-width: 100%;
-    }
-
+    h3 { font-size: 1.1rem; }
+    p { font-size: 0.9rem; }
     .education-section,
     .career-section {
-      margin-top: 48px;
-
+      margin-top: 3rem;
       .education-item,
       .career-item {
-        margin-bottom: 48px;
-        padding-bottom: 32px;
-
-        .split {
-          flex-direction: column;
-        }
-
-        .school-image {
-          order: -1;
-          margin-bottom: 16px;
-        }
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        .split { flex-direction: column; }
+        .school-image { order: -1; margin-bottom: 1rem; }
       }
     }
   }

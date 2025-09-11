@@ -6,45 +6,10 @@ $dark-bg: #1e1e1e;
 $max-width: 1200px;
 
 .projects-container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 2rem;
-  border-radius: 8px;
-  margin-top: 7rem;
+  /* Layout handled via global .page */
 
-  h1,
-  h2 {
-    font-size: 2rem;
-    color: $secondary-color;
-    text-align: center;
-    margin-bottom: 2rem;
-    position: relative;
-
-    &::after {
-      content: "";
-      display: block;
-      width: 50px;
-      height: 3px;
-      background-color: $techy-orange;
-      margin: 1rem auto 0;
-    }
-  }
-
-  p {
-    font-size: 1rem;
-    color: $secondary-color;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-  }
-
-  .intro {
-    font-style: italic;
-    color: $secondary-color;
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  p { text-align: left; }
+  .intro { font-style: italic; }
 
   .filter-section {
     margin-bottom: 1rem;
@@ -141,19 +106,5 @@ $max-width: 1200px;
     }
   }
 
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-
-    h1 {
-      font-size: 1.75rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+  @media (max-width: 768px) { .projects-grid { grid-template-columns: 1fr; } }
 }
