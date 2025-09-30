@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/jsrepo@2.5.0/schemas/project-config.json",
+  "repos": ["https://reactbits.dev/vanilla"],
+  "includeTests": false,
+  "includeDocs": false,
+  "watermark": true,
+  "formatter": "prettier",
+  "configFiles": {},
+  "paths": {
+    "Backgrounds": "./src/blocks/Backgrounds",
+    "*": "./src/blocks"
+  }
+}

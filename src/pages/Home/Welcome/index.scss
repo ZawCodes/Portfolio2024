@@ -1,11 +1,16 @@
+
 .welcome-section {
   box-sizing: border-box;
+  /* Centered overlay within the hero */
   position: relative;
-  /* Full viewport height minus footer (210px) and header (36px) */
-  min-height: calc(100vh - 246px);
-  display: flex;
-  align-items: center; /* vertical center */
-  justify-content: center; /* horizontal center */
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  z-index: 1; /* above background canvas */
+
+  /* Background styling removed - now using global background */
 
   .wrapper {
     width: 100%;
@@ -14,6 +19,8 @@
     align-items: center;
     justify-content: center;
     gap: 2.5rem; /* space between avatar and info */
+    position: relative;
+    z-index: 1; /* above background */
   }
 
   .avatar-container {
@@ -37,12 +44,12 @@
 
     h2 {
       font-size: 32px;
-      color: white;
-      font-weight: 600;
+      color: #c8c8c8;
+      font-weight: 500;
     }
 
     h4 {
-      color: white;
+      color: #9b9b9b;
       font-size: 18px;
       font-weight: 300;
       margin-top: 2rem;
@@ -50,7 +57,7 @@
   }
 
   @media only screen and (max-width: 768px) {
-    padding-top: 3rem; /* slight breathing space on smaller screens */
+    /* retain proportions on smaller screens */
 
     .avatar-container img { max-width: 250px; }
     .info-container h2 { font-size: 24px; }
@@ -58,8 +65,6 @@
   }
 
   @media only screen and (max-width: 480px) {
-    padding-top: 2rem;
-
     .avatar-container img { max-width: 200px; }
     .info-container h2 { font-size: 20px; }
     .wrapper { gap: 1.75rem; }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Home from "pages/Home";
 import Header from "pages/Header";
 import Footer from "pages/Footer";
@@ -21,29 +21,40 @@ const Abacus = lazy(() => import("pages/ProjectDetail/Abacus"));
 const ParisTobacco = lazy(() => import("pages/ProjectDetail/ParisTobacco"));
 const Qeen = lazy(() => import("pages/ProjectDetail/Qeen"));
 
+const Layout = () => {
+  const location = useLocation();
+  const hideFooter = location.pathname === "/";
+
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/background" element={<Background />} />
+        <Route path="/projects">
+          <Route path="" element={<Projects />} />
+          <Route path="learning-flow-ai" element={<LearningFlowAi />} />
+          <Route path="loansestate" element={<Loansestate />} />
+          <Route path="hunnworld" element={<Hunnworld />} />
+          <Route path="lighthouse" element={<Lighthouse />} />
+          <Route path="ysq-international" element={<YsqInternational />} />
+          <Route path="stemwerkz" element={<Stemwerkz />} />
+          <Route path="abacus" element={<Abacus />} />
+          <Route path="paris-tobacco" element={<ParisTobacco />} />
+          <Route path="qeen" element={<Qeen />} />
+        </Route>
+        <Route path="contact" element={<Contact />} />
+      </Routes>
+      {!hideFooter && <Footer />}
+    </>
+  );
+};
+
 const Index = () => {
   return (
     <BrowserRouter basename="/">
       <Suspense fallback={<div>Loading...</div>}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/background" element={<Background />} />
-          <Route path="/projects">
-            <Route path="" element={<Projects />} />
-            <Route path="learning-flow-ai" element={<LearningFlowAi />} />
-            <Route path="loansestate" element={<Loansestate />} />
-            <Route path="hunnworld" element={<Hunnworld />} />
-            <Route path="lighthouse" element={<Lighthouse />} />
-            <Route path="ysq-international" element={<YsqInternational />} />
-            <Route path="stemwerkz" element={<Stemwerkz />} />
-            <Route path="abacus" element={<Abacus />} />
-            <Route path="paris-tobacco" element={<ParisTobacco />} />
-            <Route path="qeen" element={<Qeen />} />
-          </Route>
-          <Route path="contact" element={<Contact />} />
-        </Routes>
-        <Footer />
+        <Layout />
       </Suspense>
     </BrowserRouter>
   );

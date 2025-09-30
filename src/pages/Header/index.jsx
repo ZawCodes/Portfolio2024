@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import resume from "../../assets/resume.pdf";
+import logo from "./assets/ZAW.svg";
 import "./index.scss";
 
 const Index = () => {
@@ -13,7 +14,9 @@ const Index = () => {
   return (
     <header>
       <div className="logo">
-        <Link to="/">Home</Link>
+        <Link to="/" aria-label="Home">
+          <img src={logo} alt="ZAW logo" />
+        </Link>
       </div>
       <div
         className={`hamburger ${isMenuOpen ? "open" : ""}`}

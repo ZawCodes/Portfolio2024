@@ -1,4 +1,31 @@
 .home {
+  position: relative;
+  .home-hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Home page animated background */
+  .home-squares-background {
+    position: absolute; /* fill hero */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* behind welcome */
+    pointer-events: none; /* canvas will handle events itself */
+    
+    /* Ensure the background canvas fills the entire viewport */
+    canvas {
+      position: absolute !important;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: -1;
+      pointer-events: auto;
+    }
+  }
+
   .neon-lime {
     color: #ccff00;
   }

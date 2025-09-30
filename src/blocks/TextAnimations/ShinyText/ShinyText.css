@@ -1,0 +1,49 @@
+/*
+	Installed from https://reactbits.dev/default/
+*/
+
+.shiny-text {
+  position: relative;
+  display: inline-block;
+}
+
+.shiny-text__base {
+  /* Always-visible base text */
+  position: relative;
+}
+
+.shiny-text__shine {
+  /* Overlay shimmering highlight */
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  pointer-events: none;
+  /* Shimmer gradient clipped to text */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  will-change: background-position;
+  animation: shine 5s linear infinite;
+  /* Slightly boost highlight brightness over base text */
+  mix-blend-mode: screen;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text.disabled .shiny-text__shine {
+  animation: none;
+}

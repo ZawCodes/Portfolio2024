@@ -4,6 +4,8 @@
   margin-right: auto;
   padding: 40px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 2; /* above centered welcome content */
   .social {
     display: flex;
     flex-direction: row-reverse;
@@ -15,7 +17,7 @@
   .copyright {
     box-sizing: border-box;
     min-height: 70px;
-    border-top: 1px solid #2d2d2d;
+    border-top: none;
     display: flex;
     align-items: center;
     justify-content: center;
