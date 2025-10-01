@@ -1,23 +1,130 @@
 import React from "react";
+import MagicBento from "../../../blocks/Components/MagicBento/MagicBento";
+import LogoLoop from "../../../blocks/Animations/LogoLoop/LogoLoop";
 import "./index.scss";
+import "../../../blocks/Components/MagicBento/MagicBento.css";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+} from "react-icons/si";
 
 const Info = () => {
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    {
+      node: <SiNextdotjs />,
+      title: "Next.js",
+      href: "https://nextjs.org",
+    },
+    {
+      node: <SiTypescript />,
+      title: "TypeScript",
+      href: "https://www.typescriptlang.org",
+    },
+    {
+      node: <SiTailwindcss />,
+      title: "Tailwind CSS",
+      href: "https://tailwindcss.com",
+    },
+  ];
+
   return (
     <section className="home-info">
       <div className="container">
-        <h2>About this portfolio</h2>
-        <p>
-          This is placeholder content for the next section. Scroll down to see
-          how the hero and orb move out of view and this content takes over the
-          screen. We’ll replace this with real content later.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-          curae; Aenean id magna vitae nisl pharetra vestibulum. Cras nec
-          tincidunt augue. Integer faucibus, nisi at hendrerit commodo, augue
-          justo volutpat arcu, nec interdum velit erat non sapien.
-        </p>
+        <div className="home-info__cards">
+          <MagicBento
+            textAutoHide
+            enableStars
+            enableSpotlight
+            enableBorderGlow
+            enableTilt={false}
+            enableMagnetism={false}
+            clickEffect={false}
+            simpleLayout
+            spotlightRadius={120}
+            particleCount={0}
+            glowColor="255, 107, 53"
+            cards={[
+              {
+                color: "#060010",
+                label: "About",
+                className: "card--pill card--gradient-orange",
+                content: (
+                  <div className="card__content">
+                    <h2 className="card__title">Role</h2>
+                    <p className="card__description">
+                      Front-end Developer focused on React, animations, and
+                      performance.
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                color: "#060010",
+                label: "Career",
+                className: "card--rounded card--gradient-purple",
+                content: (
+                  <div className="card__content">
+                    <h2 className="card__title">Experience</h2>
+                    <p className="card__description">
+                      6+ years (since 2019) building modern web UI
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                color: "#060010",
+                label: "Stack",
+                className:
+                  "card--rounded card--gradient-blue span-2x2 place-right",
+                content: (
+                  <div className="card__content">
+                    <h2 className="card__title">Tech</h2>
+                    <p className="card__description">
+                      React, Vite, GSAP, Three.js, Framer Motion, Zustand, RRD,
+                      Vite
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                color: "#060010",
+                label: "Reach",
+                className: "card--pill card--accent span-2x1 place-left-wide",
+                content: (
+                  <div className="card__content">
+                    <h2 className="card__title">Contact</h2>
+                    <p className="card__description">
+                      zaw@example.com • LinkedIn @zaw
+                    </p>
+                  </div>
+                ),
+              },
+            ]}
+          />
+        </div>
+
+        <div className="home-info__logo-loop">
+          <LogoLoop
+            logos={techLogos.map((tech) => ({
+              node: tech.node,
+              ariaLabel: tech.title,
+              href: tech.href,
+            }))}
+            speed={30}
+            direction="left"
+            logoHeight={28}
+            gap={36}
+            pauseOnHover
+            fadeOut
+            fadeOutColor="rgba(8, 8, 15, 0.9)"
+            scaleOnHover={false}
+            ariaLabel="Technologies"
+            className="tech-logo-loop"
+          />
+        </div>
       </div>
     </section>
   );
