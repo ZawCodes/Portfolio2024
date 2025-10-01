@@ -1,5 +1,6 @@
 import React from "react";
 import Welcome from "./Welcome";
+import Spotlight from "./Spotlight";
 import Info from "./Info";
 import "./index.scss";
 import Orb from "../../blocks/Backgrounds/Orb/Orb";
@@ -14,6 +15,7 @@ const Index = () => {
         </div>
         <Welcome />
       </div>
+      <Spotlight />
       <Info />
     </section>
   );
