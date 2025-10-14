@@ -31,8 +31,19 @@ const Info = () => {
   ];
 
   return (
-    <section className="home-info">
+    <section className="home-info" aria-labelledby="home-info__title">
       <div className="container">
+        <div className="home-info__intro">
+          <span className="home-info__eyebrow">In the toolkit</span>
+          <h2 id="home-info__title" className="home-info__title">
+            Motion-first front-end craft, delivered with calm
+          </h2>
+          <p className="home-info__description">
+            I partner with founders and design teams to ship React experiences that feel
+            premium, stay fast, and are easy to iterate on.
+          </p>
+        </div>
+
         <div className="home-info__cards">
           <MagicBento
             textAutoHide
@@ -43,9 +54,9 @@ const Info = () => {
             enableMagnetism={false}
             clickEffect={false}
             simpleLayout
-            spotlightRadius={120}
-            particleCount={0}
-            glowColor="255, 107, 53"
+            spotlightRadius={130}
+            particleCount={4}
+            glowColor="140, 90, 255"
             cards={[
               {
                 color: "#060010",
@@ -55,8 +66,8 @@ const Info = () => {
                   <div className="card__content">
                     <h2 className="card__title">Role</h2>
                     <p className="card__description">
-                      Front-end Developer focused on React, animations, and
-                      performance.
+                      Front-end engineer shaping calm, animated product surfaces for
+                      teams across Singapore and Myanmar.
                     </p>
                   </div>
                 ),
@@ -69,7 +80,8 @@ const Info = () => {
                   <div className="card__content">
                     <h2 className="card__title">Experience</h2>
                     <p className="card__description">
-                      6+ years (since 2019) building modern web UI
+                      6+ years shipping SaaS dashboards, brand launches, and learning
+                      platforms with 95+ Lighthouse scores.
                     </p>
                   </div>
                 ),
@@ -83,8 +95,8 @@ const Info = () => {
                   <div className="card__content">
                     <h2 className="card__title">Tech</h2>
                     <p className="card__description">
-                      React, Vite, GSAP, Three.js, Framer Motion, Zustand, RRD,
-                      Vite
+                      React · Next.js · TypeScript · Vite · GSAP · Framer Motion · Three.js ·
+                      Zustand · Radix UI
                     </p>
                   </div>
                 ),
@@ -97,7 +109,8 @@ const Info = () => {
                   <div className="card__content">
                     <h2 className="card__title">Contact</h2>
                     <p className="card__description">
-                      zaw@example.com • LinkedIn @zaw
+                      <a href="mailto:zaw@labs.wtf">zaw@labs.wtf</a> · LinkedIn
+                      /zawcodes · Telegram @zawcodes
                     </p>
                   </div>
                 ),
@@ -113,15 +126,15 @@ const Info = () => {
               ariaLabel: tech.title,
               href: tech.href,
             }))}
-            speed={30}
+            speed={26}
             direction="left"
-            logoHeight={28}
-            gap={36}
+            logoHeight={32}
+            gap={44}
             pauseOnHover
             fadeOut
-            fadeOutColor="rgba(8, 8, 15, 0.9)"
-            scaleOnHover={false}
-            ariaLabel="Technologies"
+            fadeOutColor="rgba(10, 6, 24, 0.92)"
+            scaleOnHover
+            ariaLabel="Preferred tooling"
             className="tech-logo-loop"
           />
         </div>

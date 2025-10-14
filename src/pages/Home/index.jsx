@@ -13,7 +13,10 @@ const Index = () => {
         <div className="home-squares-background">
           <Orb hue={280} hoverIntensity={0.15} rotateOnHover forceHoverState={false} />
         </div>
-        <Welcome />
+        <div className="home-hero__glow" aria-hidden="true" />
+        <div className="home-hero__content">
+          <Welcome />
+        </div>
       </div>
       <Spotlight />
       <Info />

@@ -1,42 +1,110 @@
 .home-info {
   position: relative;
-  z-index: 1; /* above background */
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
-  color: white;
-  padding: 80px 24px;
+  z-index: 1;
+  padding: clamp(80px, 16vh, 136px) clamp(24px, 5vw, 48px);
+  color: rgba(232, 230, 255, 0.92);
+  background: linear-gradient(180deg, rgba(6, 0, 16, 0.96) 0%, rgba(8, 0, 22, 0.88) 100%);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -30% -15% -20% -20%;
+    background:
+      radial-gradient(50% 60% at 20% 18%, rgba(118, 80, 255, 0.32), transparent 70%),
+      radial-gradient(45% 60% at 84% 22%, rgba(60, 180, 255, 0.25), transparent 72%),
+      radial-gradient(35% 55% at 62% 82%, rgba(160, 104, 255, 0.24), transparent 78%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
   .container {
+    position: relative;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
   }
 
-  h2 {
-    font-size: 28px;
-    margin-bottom: 16px;
+  &__intro {
+    max-width: 720px;
+    margin: 0 auto clamp(48px, 8vh, 72px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 3vh, 18px);
+  }
+
+  &__eyebrow {
+    align-self: center;
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(205, 188, 255, 0.8);
+    background: rgba(42, 16, 88, 0.55);
+    border: 1px solid rgba(165, 128, 255, 0.3);
+    box-shadow: 0 18px 36px rgba(38, 12, 92, 0.45);
+    backdrop-filter: blur(16px);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(32px, 5.2vw, 44px);
+    line-height: 1.2;
+    color: #ffffff;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: clamp(16px, 2.4vw, 18px);
+    line-height: 1.6;
+    color: rgba(217, 210, 248, 0.82);
   }
 
   p {
-    line-height: 1.7;
-    margin: 12px 0;
+    line-height: 1.65;
     font-weight: 300;
   }
 
-  .home-info__cards {
-    margin-bottom: 48px;
+  a {
+    color: rgba(181, 162, 255, 0.92);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgba(200, 182, 255, 1);
+    }
   }
 
-  .home-info__logo-loop {
-    padding: 32px 0 16px;
-    border-top: 1px solid rgba(162, 115, 255, 0.18);
+  &__cards {
+    margin-bottom: clamp(48px, 8vh, 72px);
   }
 
-  .home-info__logo-loop .logoloop {
+  &__logo-loop {
+    padding: clamp(24px, 5vh, 40px) 0 clamp(16px, 3vh, 28px);
+    border-top: 1px solid rgba(160, 130, 255, 0.18);
+  }
+
+  &__logo-loop .logoloop {
     margin: 0;
+    color: rgba(196, 192, 255, 0.76);
+    filter: drop-shadow(0 18px 36px rgba(18, 8, 48, 0.45));
   }
 
   .tech-logo-loop {
-    /* Make icons inherit color and look balanced */
-    color: rgba(189, 189, 255, 0.65);
+    color: inherit;
+  }
+
+  @media (max-width: 640px) {
+    padding: clamp(72px, 18vh, 100px) clamp(20px, 7vw, 28px);
+
+    &__intro {
+      margin-bottom: clamp(36px, 8vh, 60px);
+    }
+
+    &__logo-loop {
+      padding-top: 20px;
+    }
   }
 }
