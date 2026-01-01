@@ -13,14 +13,25 @@ const ShinyText = ({
   className = "",
   as = "span",
   baseColor, // optional solid color for the base text; defaults to inherited color
+  accentColor, // optional tint for the moving highlight
+  highlightColor, // optional brightest point of the sheen
+  trailColor, // optional transparent trail color
 }) => {
   const animationDuration = `${speed}s`;
   const Component = as;
+  const styleVars = {
+    ...(baseColor
+      ? { color: baseColor, "--shiny-text-base-color": baseColor }
+      : {}),
+    ...(accentColor ? { "--shiny-text-accent": accentColor } : {}),
+    ...(highlightColor ? { "--shiny-text-glint": highlightColor } : {}),
+    ...(trailColor ? { "--shiny-text-trail": trailColor } : {}),
+  };
 
   return (
     <Component
       className={`shiny-text ${disabled ? "disabled" : ""} ${className}`}
-      style={baseColor ? { color: baseColor } : undefined}
+      style={Object.keys(styleVars).length ? styleVars : undefined}
     >
       <span className="shiny-text__base">{text}</span>
       <span

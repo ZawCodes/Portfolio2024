@@ -3,24 +3,30 @@ import ME from "../Welcome/assets/me.jpg";
 import ME_PNG from "../Welcome/assets/me.png";
 import icon_url from "./assets/icon.svg";
 import "./index.scss";
+import { FiCalendar, FiMapPin, FiBriefcase, FiUserCheck, FiArrowUpRight } from "react-icons/fi";
 
-const stats = [
-  {
-    label: "Projects shipped",
-    value: "24+",
-    description: "From SaaS dashboards to immersive brand storytelling."
-  },
-  {
-    label: "Average Lighthouse score",
-    value: "95",
-    description: "Performance-first builds with accessibility baked in."
-  },
-  {
-    label: "Mission",
-    value: "Craft delightful, high-impact web experiences.",
-    description: null
-  }
-];
+// Quick personal details (edit these values to keep them up to date)
+const personal = {
+  // Optional: set birthdate to auto-calculate age, e.g., "1999-07-12"
+  birthdate: "",
+  // Fallback if birthdate is not provided
+  age: "—", // e.g., 26
+  location: "Yangon, Myanmar",
+  experience: "6+ years",
+  current: "Front-end Engineer · Open to collaboration",
+  latestProject: { name: "LearningFlow AI", href: "/projects/learning-flow-ai" },
+};
+
+const getAge = (isoDate) => {
+  if (!isoDate) return null;
+  const dob = new Date(isoDate);
+  if (isNaN(dob.getTime())) return null;
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const m = today.getMonth() - dob.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+  return `${age}`;
+};
 
 const Spotlight = () => {
   return (
@@ -46,28 +52,68 @@ const Spotlight = () => {
             />
           </div>
 
-          <div className="home-spotlight__content">
-            <p className="home-spotlight__eyebrow">In focus</p>
-            <h2 id="home-spotlight__title" className="home-spotlight__title">
-              Designing calm, animated interfaces that earn trust
-            </h2>
-            <blockquote className="home-spotlight__quote">
-              “Great products feel effortless. I blend motion, performance, and
-              storytelling to keep users curious and teams confident.”
-            </blockquote>
-            <ul className="home-spotlight__stats" role="list">
-              {stats.map(({ label, value, description }) => (
-                <li key={label} className="home-spotlight__stat" role="listitem">
-                  <span className="home-spotlight__stat-value">{value}</span>
-                  <span className="home-spotlight__stat-label">{label}</span>
-                  {description && (
-                    <span className="home-spotlight__stat-description">
-                      {description}
-                    </span>
-                  )}
+          <div className="home-spotlight__content" role="region" aria-labelledby="home-spotlight__title">
+            <p className="home-spotlight__eyebrow">About me</p>
+            <p className="home-spotlight__kicker">{personal.location} • {personal.experience}</p>
+
+
+
+
+            <div className="home-spotlight__section" aria-labelledby="at-a-glance-title">
+              <ul className="home-spotlight__details" role="list">
+                <li className="home-spotlight__detail" role="listitem">
+                  <span className="home-spotlight__detail-icon" aria-hidden="true"><FiCalendar /></span>
+                  <div className="home-spotlight__detail-body">
+                    <span className="home-spotlight__detail-label">Age</span>
+                    <span className="home-spotlight__detail-value">{getAge(personal.birthdate) ?? personal.age}</span>
+                  </div>
                 </li>
-              ))}
-            </ul>
+                <li className="home-spotlight__detail" role="listitem">
+                  <span className="home-spotlight__detail-icon" aria-hidden="true"><FiBriefcase /></span>
+                  <div className="home-spotlight__detail-body">
+                    <span className="home-spotlight__detail-label">Experience</span>
+                    <span className="home-spotlight__detail-value">{personal.experience}</span>
+                  </div>
+                </li>
+                <li className="home-spotlight__detail" role="listitem">
+                  <span className="home-spotlight__detail-icon" aria-hidden="true"><FiArrowUpRight /></span>
+                  <div className="home-spotlight__detail-body">
+                    <span className="home-spotlight__detail-label">Latest project</span>
+                    <a className="home-spotlight__detail-value link" href={personal.latestProject.href}>{personal.latestProject.name}</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div className="home-spotlight__section" aria-labelledby="tech-stack-title">
+              <h3 id="tech-stack-title" className="home-spotlight__section-title">Core stack</h3>
+              <ul className="home-spotlight__tags" role="list">
+                {[
+                  "React",
+                  "Next.js",
+                  "TypeScript",
+                  "Vite",
+                  "SCSS / CSS Modules",
+                  "Tailwind CSS",
+                ].map((t) => (
+                  <li key={t} className="home-spotlight__tag" role="listitem">{t}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="home-spotlight__section" aria-labelledby="language-title">
+              <h3 id="language-title" className="home-spotlight__section-title">Language</h3>
+              <ul className="home-spotlight__tags" role="list">
+                {[
+                  "Myanmar",
+                  "English",
+                  "Japanese",
+                ].map((t) => (
+                  <li key={t} className="home-spotlight__tag" role="listitem">{t}</li>
+                ))}
+              </ul>
+            </div>
+
             <div className="home-spotlight__cta" role="group" aria-label="Primary actions">
               <a className="home-spotlight__cta-btn home-spotlight__cta-btn--primary" href="/projects">
                 View projects

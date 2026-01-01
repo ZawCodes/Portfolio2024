@@ -5,11 +5,17 @@
 .shiny-text {
   position: relative;
   display: inline-block;
+  /* Allow consumers to tune the palette when needed */
+  --shiny-text-base-color: currentColor;
+  --shiny-text-glint: rgba(210, 227, 255, 0.95);
+  --shiny-text-accent: rgba(255, 191, 255, 0.9);
+  --shiny-text-trail: rgba(255, 255, 255, 0);
 }
 
 .shiny-text__base {
   /* Always-visible base text */
   position: relative;
+  color: var(--shiny-text-base-color);
 }
 
 .shiny-text__shine {
@@ -22,17 +28,18 @@
   /* Shimmer gradient clipped to text */
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(255, 255, 255, 0) 60%
+    var(--shiny-text-trail) 30%,
+    var(--shiny-text-accent) 46%,
+    var(--shiny-text-glint) 50%,
+    var(--shiny-text-accent) 54%,
+    var(--shiny-text-trail) 70%
   );
-  background-size: 200% 100%;
+  background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   will-change: background-position;
   animation: shine 5s linear infinite;
-  /* Slightly boost highlight brightness over base text */
-  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 0.75em rgba(168, 215, 255, 0.35));
 }
 
 @keyframes shine {

@@ -13,7 +13,7 @@ const Index = () => {
     <section className="welcome-section">
       <div className="welcome-section__spark" aria-hidden="true" />
       <div className="welcome-section__content">
-        <span className="welcome-section__eyebrow">Front-end developer · Singapore & Myanmar</span>
+        <span className="welcome-section__eyebrow">Front-end developer</span>
 
         <ShinyText
           as="h1"

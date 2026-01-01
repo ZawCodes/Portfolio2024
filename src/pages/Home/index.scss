@@ -1,6 +1,6 @@
 .home {
   position: relative;
-  --header-height: 36px;
+  /* Header overlays content; hero should fill full viewport */
 
   .home-hero {
     position: relative;
@@ -9,8 +9,8 @@
     justify-content: center;
     overflow: hidden;
   box-sizing: border-box;
-  height: calc(100dvh - var(--header-height));
-  min-height: calc(100dvh - var(--header-height));
+  height: 100dvh;
+  min-height: 100dvh;
     padding: clamp(40px, 8vh, 88px) clamp(20px, 6vw, 80px);
     isolation: isolate;
     background:
@@ -72,8 +72,6 @@
   }
 
   @media (max-width: 640px) {
-    --header-height: 56px;
-
     .home-hero {
       height: auto;
       min-height: clamp(540px, 100dvh, 720px);
