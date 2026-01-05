@@ -11,6 +11,23 @@ import PT from "./assets/pt.jpg";
 import QEEN from "./assets/qeen.jpg";
 import "./index.scss";
 
+const ChevronIcon = ({ isOpen }) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    style={{
+      transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+      transition: "transform 0.3s ease",
+    }}
+  >
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+);
+
 const projectsData = [
   {
     id: 1,
@@ -133,6 +150,7 @@ const Projects = () => {
   const [selectedOrg, setSelectedOrg] = useState("All");
   const [selectedType, setSelectedType] = useState("All");
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
+  const [showFilters, setShowFilters] = useState(false);
 
   const allTags = [
     "All",
@@ -172,35 +190,54 @@ const Projects = () => {
   );
 
   return (
-    <div className="projects-container page">
-      <h1 className="page-title">My Projects</h1>
-      <p className="intro page-intro">
-        Here are some of the projects I've worked on. I'm still gradually adding in more entries as of now.
-      </p>
+    <div className="projects-page">
+      <div className="page-hero">
+        <div className="hero-inner">
+          <p className="hero-kicker">Portfolio</p>
+          <h1 className="page-title">My Projects</h1>
+          <p className="hero-subtitle">
+            Here are some of the projects I've worked on. I'm still gradually adding in more entries as of now.
+          </p>
+        </div>
+      </div>
 
-      <FilterButtons
-        options={allTags}
-        selected={selectedTag}
-        setSelected={setSelectedTag}
-        title="Filter by technology"
-      />
-      <FilterButtons
-        options={allOrgs}
-        selected={selectedOrg}
-        setSelected={setSelectedOrg}
-        title="Filter by organization"
-      />
-      <FilterButtons
-        options={allTypes}
-        selected={selectedType}
-        setSelected={setSelectedType}
-        title="Filter by type"
-      />
+      <div className="projects-container page">
+        <div className="filters-header">
+          <button 
+            className="filters-toggle"
+            onClick={() => setShowFilters(!showFilters)}
+          >
+            <span>Filters</span>
+            <ChevronIcon isOpen={showFilters} />
+          </button>
+        </div>
 
-      <div className="projects-grid">
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+        <div className={`filters-section ${showFilters ? "open" : ""}`}>
+          <FilterButtons
+            options={allTags}
+            selected={selectedTag}
+            setSelected={setSelectedTag}
+            title="Filter by technology"
+          />
+          <FilterButtons
+            options={allOrgs}
+            selected={selectedOrg}
+            setSelected={setSelectedOrg}
+            title="Filter by organization"
+          />
+          <FilterButtons
+            options={allTypes}
+            selected={selectedType}
+            setSelected={setSelectedType}
+            title="Filter by type"
+          />
+        </div>
+
+        <div className="projects-grid">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </div>
   );

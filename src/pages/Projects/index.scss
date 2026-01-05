@@ -5,11 +5,85 @@ $techy-blue: #4a90e2;
 $dark-bg: #1e1e1e;
 $max-width: 1200px;
 
-.projects-container {
-  /* Layout handled via global .page */
+.projects-page {
+  .page-hero {
+    background: linear-gradient(135deg, #0f1217 0%, #141a22 60%, #0f1217 100%);
+    padding: 120px 24px 110px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba($techy-blue, 0.18);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
 
+    .hero-inner {
+      max-width: $max-width;
+      margin: 0 auto;
+      text-align: center;
+      color: #f5f7fa;
+
+      .hero-kicker {
+        font-size: 0.85rem;
+        letter-spacing: 0.25rem;
+        text-transform: uppercase;
+        color: rgba($techy-blue, 0.7);
+        margin-bottom: 0.6rem;
+      }
+
+      .page-title {
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.6px;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        color: rgba(#f5f7fa, 0.82);
+        max-width: 760px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+    }
+  }
+}
+
+.projects-container {
   p { text-align: left; }
   .intro { font-style: italic; }
+
+  .filters-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+
+    .filters-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: transparent;
+      border: 1px solid $techy-blue;
+      color: $techy-blue;
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: rgba($techy-blue, 0.1);
+      }
+    }
+  }
+
+  .filters-section {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &.open {
+      max-height: 500px;
+      margin-bottom: 2rem;
+    }
+  }
 
   .filter-section {
     margin-bottom: 1rem;

@@ -14,9 +14,9 @@
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 2rem;
-    align-items: flex-start;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: center;
   }
 
   /* Left Side - Avatar */
@@ -29,7 +29,7 @@
   .avatar-wrapper {
     position: relative;
     width: 100%;
-    max-width: 180px;
+    max-width: 200px;
     aspect-ratio: 1;
   }
 
@@ -48,8 +48,8 @@
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 10%;
-    border: 2px solid #373737;
+    border-radius: 50%;
+    border: 3px solid rgba(74, 144, 226, 0.3);
     object-fit: cover;
     z-index: 2;
     transition: transform 0.3s ease;
@@ -63,29 +63,29 @@
   .hero-right {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2.25rem;
   }
 
   .content-top {
     .greeting {
-      font-size: 16px;
+      font-size: 14px;
       color: #7c7c7c;
       font-weight: 500;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     h1 {
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
       color: #d6d6d6;
       line-height: 1.2;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .tagline {
-      font-size: 18px;
+      font-size: 17px;
       color: #a0a0a0;
       font-weight: 400;
       letter-spacing: 0.5px;
@@ -143,20 +143,19 @@
     }
 
     .tech-tag {
-      background: rgba(74, 144, 226, 0.15);
+      background: rgba(74, 144, 226, 0.12);
       color: #4a90e2;
       padding: 0.5rem 1rem;
-      border-radius: 6px;
+      border-radius: 4px;
       font-size: 14px;
       font-weight: 500;
-      border: 1px solid rgba(74, 144, 226, 0.3);
-      transition: all 0.3s ease;
+      border: 1px solid rgba(74, 144, 226, 0.25);
+      transition: all 0.2s ease;
       cursor: default;
 
       &:hover {
-        background: rgba(74, 144, 226, 0.25);
-        border-color: rgba(74, 144, 226, 0.5);
-        transform: translateY(-2px);
+        background: rgba(74, 144, 226, 0.2);
+        border-color: rgba(74, 144, 226, 0.4);
       }
     }
   }

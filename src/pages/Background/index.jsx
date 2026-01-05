@@ -138,25 +138,32 @@ const Index = () => {
   ];
 
   return (
-    <div className="background-container page">
-      <h1 className="page-title">A little back story</h1>
-      <p className="intro page-intro">
-        I was born in Myanmar and I'm currently {currentAge}. I'd love to share a bit of my journey so you can get to know me better.
-      </p>
+    <div className="background-page">
+      <div className="page-hero">
+        <div className="hero-inner">
+          <p className="hero-kicker">Background</p>
+          <h1 className="page-title">A little back story</h1>
+          <p className="hero-subtitle">
+            I was born in Myanmar and I'm currently {currentAge}. I'd love to share a bit of my journey so you can get to know me better.
+          </p>
+        </div>
+      </div>
 
-      <section className="education-section">
-        <h2 className="section-title">Education</h2>
-        {educationData.map((item, index) => (
-          <EducationItem key={index} {...item} />
-        ))}
-      </section>
+      <div className="background-container page">
+        <section className="education-section">
+          <h2 className="section-title">Education</h2>
+          {educationData.map((item, index) => (
+            <EducationItem key={index} {...item} />
+          ))}
+        </section>
 
-      <section className="career-section">
-        <h2 className="section-title">Working experiences</h2>
-        {careerData.map((item, index) => (
-          <CareerItem key={index} {...item} />
-        ))}
-      </section>
+        <section className="career-section">
+          <h2 className="section-title">Working experiences</h2>
+          {careerData.map((item, index) => (
+            <CareerItem key={index} {...item} />
+          ))}
+        </section>
+      </div>
     </div>
   );
 };
