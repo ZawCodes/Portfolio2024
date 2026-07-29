@@ -1,209 +1,230 @@
-$primary-color: #d6d6d6;
-$secondary-color: #a0a0a0;
-$accent-color: #4a90e2;
-$max-width: 1200px;
+.project-detail-page {
+  margin-top: 3rem;
+  padding-top: var(--space-lg);
 
-.project-detail-container {
-  max-width: $max-width;
-  margin: 7rem auto 0;
-  padding: 2rem;
-  border-radius: 8px;
-
-  h1 {
-    font-size: 2.5rem;
-    color: $primary-color;
-    text-align: center;
-    margin-bottom: 2rem;
-    position: relative;
-
-    &::after {
-      content: "";
-      display: block;
-      width: 50px;
-      height: 3px;
-      background-color: $accent-color;
-      margin: 1rem auto 0;
-    }
+  .article {
+    max-width: 44rem;
+    margin: 0 auto;
   }
 
-  .project-image {
-    margin-bottom: 2rem;
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: var(--space-2xl);
+    transition: color var(--transition-base);
 
-    img {
-      width: 100%;
-      max-height: 600px;
-      object-fit: cover;
-      border-radius: 8px;
+    svg {
+      transition: transform var(--transition-base);
     }
-  }
 
-  .project-info {
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+    &:hover {
+      color: var(--color-accent);
 
-      .tag {
-        background-color: $accent-color;
-        color: #ffffff;
-        font-size: 0.9rem;
-        padding: 0.3rem 0.7rem;
-        border-radius: 20px;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: darken($accent-color, 10%);
-        }
+      svg {
+        transform: translateX(-3px);
       }
+    }
+  }
+
+  .project-header {
+    margin-bottom: var(--space-2xl);
+
+    .kicker {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    h1 {
+      font-size: var(--title-size);
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin: 0 0 var(--space-md);
     }
 
     .description {
-      font-size: 1.1rem;
-      color: $primary-color;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      font-weight: 300;
+      margin: 0 0 var(--space-lg);
     }
 
-    .metadata {
-      margin-bottom: 1.5rem;
+    .meta-row {
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: var(--space-md);
 
-      p {
-        font-size: 1rem;
-        color: $secondary-color;
-        margin-bottom: 0.5rem;
-        flex: 1 1 30%;
-      }
-    }
+      .meta-org {
+        font-size: 0.85rem;
+        color: var(--color-text-muted);
 
-    .project-details,
-    .project-challenges,
-    .project-role,
-    .project-outcome {
-      margin-bottom: 2rem;
-
-      h2 {
-        font-size: 1.5rem;
-        color: $primary-color;
-        margin-bottom: 1rem;
-        border-bottom: 2px solid $accent-color;
-        padding-bottom: 0.5rem;
+        strong {
+          color: var(--color-text-secondary);
+          font-weight: 600;
+          margin-right: var(--space-2xs);
+        }
       }
 
-      h3 {
-        margin-top: 2rem;
-        font-size: 1.2rem;
-        color: $accent-color;
+      .meta-sep {
+        width: 1px;
+        height: 14px;
+        background: var(--color-border-strong);
       }
 
-      p {
-        margin-bottom: 1.5rem;
-      }
-      li {
-        margin-bottom: 1rem;
-      }
-
-      p,
-      li {
-        font-size: 1rem;
-        color: $secondary-color;
-        line-height: 1.6;
-      }
-
-      ul {
-        padding-left: 1.5rem;
-        list-style: circle;
-      }
-      .figure-container {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+      .tags {
         display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 0 4rem;
-        > div {
-          width: 48%;
-          text-align: center;
-          label {
-            display: inline-block;
-            font-size: 14px;
-            color: $primary-color;
-            margin-top: 1rem;
-          }
-          img {
-            width: 100%;
-            height: 80%;
-            border-radius: 6px;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
 
-            border: 1px solid $accent-color;
-          }
+        .tag {
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid var(--color-border);
+          color: var(--color-text-muted);
+          font-size: 0.78rem;
+          padding: 0.25rem 0.65rem;
+          border-radius: 20px;
         }
       }
     }
+  }
 
-    .tech-stack {
-      margin-top: 1.5rem;
+  .project-media {
+    margin-bottom: var(--space-3xl);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
 
-      h3 {
-        font-size: 1.2rem;
-        color: $primary-color;
-        margin-bottom: 1rem;
+    img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .project-section {
+    margin-top: var(--space-3xl);
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin: 0 0 var(--space-xl);
+
+    .section-index {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+
+    .section-label {
+      font-size: var(--subtitle-size);
+      font-weight: 500;
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border-strong);
+    }
+  }
+
+  .section-body {
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin: var(--space-xl) 0 var(--space-md);
+    }
+
+    p {
+      font-size: 0.98rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      font-weight: 300;
+      margin: 0 0 var(--space-md);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0 0 var(--space-md);
+      list-style: disc;
+
+      li {
+        font-size: 0.98rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        font-weight: 300;
+        margin-bottom: var(--space-sm);
       }
+    }
 
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        list-style-type: none;
-        padding: 0;
+    .figure-container {
+      margin: var(--space-lg) 0 var(--space-xl);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
 
-        li {
-          display: flex;
-          align-items: center;
-          font-size: 1rem;
-          color: $secondary-color;
+      > div {
+        flex: 0 1 320px;
+        max-width: 320px;
+        text-align: center;
 
-          img {
-            width: 24px;
-            height: 24px;
-            margin-right: 0.5rem;
-          }
+        img,
+        video {
+          width: 100%;
+          height: auto;
+          border-radius: var(--radius-md);
+          border: 1px solid var(--color-border);
+          display: block;
+        }
+
+        label {
+          display: inline-block;
+          font-size: 0.8rem;
+          color: var(--color-text-muted);
+          margin-top: var(--space-sm);
         }
       }
     }
   }
 
   @media (max-width: 768px) {
-    padding: 1.5rem;
-
-    h1 {
-      font-size: 2rem;
+    .project-header h1 {
+      font-size: 1.8rem;
     }
 
-    .project-image img {
-      max-height: 300px;
+    .project-media img {
+      max-height: 260px;
     }
 
-    .project-info {
-      .description {
-        font-size: 1rem;
-      }
-
-      .project-details,
-      .project-challenges,
-      .project-role {
-        h2 {
-          font-size: 1.3rem;
-        }
-
-        p,
-        li {
-          font-size: 0.9rem;
-        }
-      }
+    .section-body .figure-container > div {
+      flex-basis: 100%;
+      max-width: 100%;
     }
   }
 }

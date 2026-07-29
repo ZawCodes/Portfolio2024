@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import resume from "../../assets/resume.pdf";
 import "./index.scss";
+
+const slideDown = {
+  hidden: { opacity: 0, y: -24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,43 +16,59 @@ const Index = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const navLinkClass = ({ isActive }) => (isActive ? "active" : "");
+
   return (
     <header>
-      <div className="logo">
-        <Link to="/">Home</Link>
-      </div>
-      <div
+      <motion.div className="logo" initial="hidden" animate="visible" variants={slideDown}>
+        <NavLink to="/">Home</NavLink>
+      </motion.div>
+      <motion.div
         className={`hamburger ${isMenuOpen ? "open" : ""}`}
         onClick={toggleMenu}
+        initial="hidden"
+        animate="visible"
+        variants={slideDown}
       >
         <span></span>
         <span></span>
         <span></span>
-      </div>
-      <nav className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
+      </motion.div>
+      <motion.nav
+        className={`nav-menu ${isMenuOpen ? "open" : ""}`}
+        initial="hidden"
+        animate="visible"
+        variants={slideDown}
+      >
         <ul>
           <li>
-            <Link to="/background" onClick={toggleMenu}>
+            <NavLink to="/background" className={navLinkClass} onClick={toggleMenu}>
               Background
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/projects" onClick={toggleMenu}>
+            <NavLink to="/projects" className={navLinkClass} onClick={toggleMenu}>
               Projects
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/contact" onClick={toggleMenu}>
+            <NavLink to="/contact" className={navLinkClass} onClick={toggleMenu}>
               Contact
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <a href={resume} target="_blank" onClick={toggleMenu}>
+            <a
+              href={resume}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-secondary resume-btn"
+              onClick={toggleMenu}
+            >
               Resume
             </a>
           </li>
         </ul>
-      </nav>
+      </motion.nav>
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
     </header>
   );

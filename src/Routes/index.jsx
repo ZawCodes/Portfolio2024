@@ -25,25 +25,29 @@ const Index = () => {
   return (
     <BrowserRouter basename="/">
       <Suspense fallback={<div>Loading...</div>}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/background" element={<Background />} />
-          <Route path="/projects">
-            <Route path="" element={<Projects />} />
-            <Route path="learning-flow-ai" element={<LearningFlowAi />} />
-            <Route path="loansestate" element={<Loansestate />} />
-            <Route path="hunnworld" element={<Hunnworld />} />
-            <Route path="lighthouse" element={<Lighthouse />} />
-            <Route path="ysq-international" element={<YsqInternational />} />
-            <Route path="stemwerkz" element={<Stemwerkz />} />
-            <Route path="abacus" element={<Abacus />} />
-            <Route path="paris-tobacco" element={<ParisTobacco />} />
-            <Route path="qeen" element={<Qeen />} />
-          </Route>
-          <Route path="contact" element={<Contact />} />
-        </Routes>
-        <Footer />
+        <div className="app-shell">
+          <Header />
+          <div className="app-main">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/background" element={<Background />} />
+              <Route path="/projects">
+                <Route path="" element={<Projects />} />
+                <Route path="learning-flow-ai" element={<LearningFlowAi />} />
+                <Route path="loansestate" element={<Loansestate />} />
+                <Route path="hunnworld" element={<Hunnworld />} />
+                <Route path="lighthouse" element={<Lighthouse />} />
+                <Route path="ysq-international" element={<YsqInternational />} />
+                <Route path="stemwerkz" element={<Stemwerkz />} />
+                <Route path="abacus" element={<Abacus />} />
+                <Route path="paris-tobacco" element={<ParisTobacco />} />
+                <Route path="qeen" element={<Qeen />} />
+              </Route>
+              <Route path="contact" element={<Contact />} />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
       </Suspense>
     </BrowserRouter>
   );

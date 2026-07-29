@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import L4DC from "./assets/l4dc.jpg";
 import UIT from "./assets/uit.jpg";
 import DAT from "./assets/dat.jpg";
@@ -6,50 +7,127 @@ import Amdon from "./assets/amdon.jpg";
 import Ysq from "./assets/ysq_group.jpg";
 import "./index.scss";
 
-const EducationItem = ({ year, description, funFact, imageSrc, imageAlt }) => (
-  <div className="education-item">
-    <div className="split">
-      <div className="left">
-        <h3>{year}</h3>
-        <p>{description}</p>
-        {funFact && <p className="fun-fact">{funFact}</p>}
-      </div>
-      {imageSrc && (
-        <div className="right school-image">
-          <img src={imageSrc} alt={imageAlt} />
-        </div>
-      )}
-    </div>
-  </div>
+/* Section headings and timeline items: reveal as they scroll into view */
+const sectionTitleVariant = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+const timelineItemVariant = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const SectionHeading = ({ index, title }) => (
+  <motion.div
+    className="section-heading"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.6 }}
+    variants={sectionTitleVariant}
+  >
+    <span className="section-index" aria-hidden="true">{index}</span>
+    <h2 className="section-label">{title}</h2>
+    <span className="section-rule" aria-hidden="true" />
+  </motion.div>
 );
 
-const CareerItem = ({ year, description, funFact, imageSrc, imageAlt }) => (
-  <div className="career-item">
-    <div className="split">
-      <div className="left">
-        <h3>{year}</h3>
-        {Array.isArray(description) ? (
-          description.map((desc, index) => <p key={index}>{desc}</p>)
-        ) : (
-          <p>{description}</p>
+/* Small thumbnail chip that opens a photo in a popover anchored to itself */
+const PhotoChip = ({ src, alt, imagePosition }) => {
+  const [open, setOpen] = useState(false);
+  const [placement, setPlacement] = useState({ vertical: "bottom", horizontal: "left" });
+  const wrapperRef = useRef(null);
+  const popoverRef = useRef(null);
+  const imgStyle = imagePosition ? { objectPosition: imagePosition } : undefined;
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
+  useLayoutEffect(() => {
+    if (!open || !popoverRef.current) return;
+    const rect = popoverRef.current.getBoundingClientRect();
+    setPlacement({
+      vertical: rect.bottom > window.innerHeight - 16 ? "top" : "bottom",
+      horizontal: rect.right > window.innerWidth - 16 ? "right" : "left",
+    });
+  }, [open]);
+
+  return (
+    <span className="photo-trigger" ref={wrapperRef}>
+      <button
+        type="button"
+        className="photo-chip"
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        aria-label={`View photo for ${alt}`}
+      >
+        <img src={src} alt="" style={imgStyle} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            ref={popoverRef}
+            className={`photo-popover placement-${placement.vertical}-${placement.horizontal}`}
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.92 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+          >
+            <img src={src} alt={alt} style={imgStyle} />
+          </motion.div>
         )}
+      </AnimatePresence>
+    </span>
+  );
+};
+
+const TimelineItem = ({ year, title, description, funFact, imageSrc, imageAlt, imagePosition }) => {
+  const paragraphs = Array.isArray(description) ? description : [description];
+
+  return (
+    <motion.div
+      className="timeline-item"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      variants={timelineItemVariant}
+    >
+      <div className="timeline-card">
+        <span className="timeline-year">{year}</span>
+        <h3 className="timeline-role">
+          {title}
+          {imageSrc && <PhotoChip src={imageSrc} alt={imageAlt} imagePosition={imagePosition} />}
+        </h3>
+        {paragraphs.map((desc, index) => (
+          <p key={index}>{desc}</p>
+        ))}
         {funFact && <p className="fun-fact">{funFact}</p>}
       </div>
-      {imageSrc && (
-        <div className="right school-image">
-          <img src={imageSrc} alt={imageAlt} />
-        </div>
-      )}
-    </div>
-  </div>
-);
+    </motion.div>
+  );
+};
 
 const Index = () => {
-  // Dynamically compute age (birth year inferred from original text: 27 in 2025 -> 1998)
-  const currentAge = new Date().getFullYear() - 1998;
   const educationData = [
     {
       year: "2003-2014",
+      title: "Basic Education High School Ahlone 4",
       description:
         "From primary school through high school graduation, I completed my entire academic journey at Basic Education High School Ahlone 4.",
       funFact:
@@ -57,17 +135,20 @@ const Index = () => {
     },
     {
       year: "2014-2015",
+      title: "Level 4 Diploma in Computing — KMD",
       description:
         "After graduating, I attended a Level 4 Diploma in Computing course at a local computer training center called KMD.",
       funFact:
   "The program offered full scholarships to students with 5 or more distinctions, which motivated me to enroll.",
       imageSrc: L4DC,
-      imageAlt: "Basic Education High School Ahlone 4",
+      imageAlt: "Level 4 Diploma graduation ceremony",
+      imagePosition: "68% center",
     },
     {
       year: "2014-2019",
+      title: "University of Information Technology",
       description: [
-  "I chose to pursue Computer Science because I was drawn to technology's blend of logic, creativity, and impact.",
+  "I chose to pursue Computer Science because I enjoyed building websites and apps.",
   "I enrolled at the University of Information Technology, majoring in Computer Science and Software Engineering.",
       ],
       funFact:
@@ -80,6 +161,7 @@ const Index = () => {
   const careerData = [
     {
       year: "2018",
+      title: "Field Study — Base",
       description:
   "In my 4th year, I completed a one-month field study at a local company called Base—my first exposure to a professional office environment.",
       funFact:
@@ -87,8 +169,9 @@ const Index = () => {
     },
     {
       year: "2019",
+      title: "Internship — DIR-ACE Technology (DAT)",
       description: [
-    "In the second half of my final year at university, I passed an internal interview and was offered a 4‑month internship at a local company called DIR ACE Technology.",
+    "In the second half of my final year, I interviewed for and landed a 4‑month internship at a local company called DIR-ACE Technology.",
         "DIR-ACE Technology Ltd. (DAT) is a collaboration between Japan's DIR and Myanmar's ACE, providing IT solutions for financial markets.",
       ],
       funFact:
@@ -98,20 +181,20 @@ const Index = () => {
     },
     {
       year: "2019-2022",
-      description: [
-  "After the internship, I joined Werkz Technology (Amdon), motivated by growth potential and the chance to collaborate regionally, including with the Singapore team.",
-  "I officially started my career as a front-end developer at the Amdon Group.",
-      ],
+      title: "Front-end Developer — Werkz Technology (Amdon Group)",
+      description:
+  "After the internship, I officially started my career as a front-end developer at Werkz Technology (Amdon), collaborating regionally with teams including Singapore.",
       funFact:
-  "I chose the Singapore pathway after graduation—working there had long been a goal of mine.",
+  "I chose it because it's a Singapore-based company—working for one had long been a goal of mine.",
       imageSrc: Amdon,
       imageAlt: "Amdon",
     },
     {
       year: "2022-2024",
+      title: "Front-end Developer — YSQ International",
       description: [
   "Amid significant changes at home in 2021, I began exploring international opportunities. In August 2022, I relocated to Singapore and joined YSQ International as a front-end developer.",
-  "It was my first time living abroad and adapting to a new working culture and language style (including Singlish), and the experience accelerated both my technical and interpersonal growth.",
+  "It was my first time living abroad, and adapting to a new working culture accelerated both my technical and interpersonal growth.",
       ],
       funFact:
   "As the sole front-end developer, I partnered with a backend lead to deliver 12+ company websites in 1 year and 7 months.",
@@ -120,8 +203,9 @@ const Index = () => {
     },
     {
       year: "2024",
+      title: "Career Transition — Loan$upermart",
       description: [
-  "Following organizational shifts and team transitions, my role concluded during a company restructuring.",
+  "My role ended during a team restructuring.",
   "Soon after, I briefly contributed to the Loans Estate CRM project for the consulting firm Loan$upermart.",
       ],
       funFact:
@@ -129,6 +213,7 @@ const Index = () => {
     },
     {
       year: "2024-current",
+      title: "Front-end Developer (Remote) — Amdon Group",
       description: [
   "I relocated to Bangkok and rejoined the Amdon Group as a remote front-end developer.",
       ],
@@ -138,32 +223,24 @@ const Index = () => {
   ];
 
   return (
-    <div className="background-page">
-      <div className="page-hero">
-        <div className="hero-inner">
-          <p className="hero-kicker">Background</p>
-          <h1 className="page-title">A little back story</h1>
-          <p className="hero-subtitle">
-            I was born in Myanmar and I'm currently {currentAge}. I'd love to share a bit of my journey so you can get to know me better.
-          </p>
-        </div>
-      </div>
-
-      <div className="background-container page">
-        <section className="education-section">
-          <h2 className="section-title">Education</h2>
+    <div className="background-page page">
+      <section className="timeline-section">
+        <SectionHeading index="01" title="Education" />
+        <div className="timeline">
           {educationData.map((item, index) => (
-            <EducationItem key={index} {...item} />
+            <TimelineItem key={index} {...item} />
           ))}
-        </section>
+        </div>
+      </section>
 
-        <section className="career-section">
-          <h2 className="section-title">Working experiences</h2>
+      <section className="timeline-section">
+        <SectionHeading index="02" title="Working Experience" />
+        <div className="timeline">
           {careerData.map((item, index) => (
-            <CareerItem key={index} {...item} />
+            <TimelineItem key={index} {...item} />
           ))}
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 };

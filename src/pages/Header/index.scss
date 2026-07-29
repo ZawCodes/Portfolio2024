@@ -2,40 +2,81 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: var(--color-bg-elevated);
   padding: 1.25rem 3rem;
-  color: white;
+  color: var(--color-text-primary);
   position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
 
   .logo {
     z-index: 1001;
 
     a {
       text-decoration: none;
-      color: #d6d6d6;
+      color: var(--color-text-primary);
       font-weight: 600;
       font-size: 16px;
       letter-spacing: -0.5px;
       transition: color 0.2s ease;
 
       &:hover {
-        color: #d6d6d6;
+        color: var(--color-text-primary);
       }
     }
   }
 
   a {
     text-decoration: none;
-    color: #a0a0a0;
+    color: var(--color-text-secondary);
     transition: color 0.25s ease;
     font-size: 14px;
     position: relative;
     font-weight: 500;
 
     &:hover {
-      color: #d6d6d6;
+      color: var(--color-text-primary);
+    }
+
+    &.active {
+      color: var(--color-text-primary);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        background: var(--color-accent);
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .nav-menu a:not(.resume-btn)::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-menu a:not(.resume-btn):hover::before {
+    transform: scaleX(1);
+  }
+
+  .resume-btn {
+    padding: 0.45rem 1rem;
+    font-size: 13px;
+
+    &:hover {
+      color: var(--color-text-primary);
     }
   }
 
@@ -46,11 +87,19 @@ header {
       list-style: none;
       margin: 0;
       padding: 0;
+      align-items: center;
       gap: 3.5rem;
 
       li {
+        display: flex;
+        align-items: center;
+
         &:first-child {
           margin-left: 0;
+        }
+
+        &:last-child {
+          margin-left: -0.75rem;
         }
       }
     }
@@ -66,7 +115,7 @@ header {
     span {
       height: 2px;
       width: 24px;
-      background-color: #d6d6d6;
+      background-color: var(--color-text-primary);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -121,7 +170,7 @@ header {
       right: -100%;
       width: 100%;
       height: 100vh;
-      background-color: #1a1a1a;
+      background-color: var(--color-bg-elevated);
       padding: 5rem 1.5rem 1.5rem;
       transition: right 0.3s ease-in-out;
       z-index: 1000;
