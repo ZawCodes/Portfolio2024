@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiArrowRight, FiDownload } from "react-icons/fi";
-import resume from "../../../assets/resume.pdf";
+import { FiArrowRight } from "react-icons/fi";
+import ResumeMenu from "../../../components/ResumeMenu";
 import "./index.scss";
 
 /* Identity (eyebrow + name): tight duo, reveals first */
@@ -71,16 +71,9 @@ const Index = () => {
             View Projects
             <FiArrowRight />
           </motion.a>
-          <motion.a
-            href={resume}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-secondary"
-            variants={ctaItem}
-          >
-            Resume
-            <FiDownload />
-          </motion.a>
+          <motion.div variants={ctaItem}>
+            <ResumeMenu triggerClassName="btn btn-secondary">Resume</ResumeMenu>
+          </motion.div>
         </motion.div>
 
         <motion.div

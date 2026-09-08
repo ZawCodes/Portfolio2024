@@ -1,0 +1,66 @@
+.resume-menu {
+  position: relative;
+  display: inline-flex;
+
+  .resume-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .resume-menu-chevron {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+
+  .resume-menu-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 140px;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    z-index: 20;
+    animation: resume-menu-in 0.15s ease-out;
+
+    a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+
+      &:hover {
+        color: var(--color-text-primary);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      &::before {
+        content: none !important;
+      }
+    }
+  }
+}
+
+@keyframes resume-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

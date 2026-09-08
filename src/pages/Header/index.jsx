@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import resume from "../../assets/resume.pdf";
+import ResumeMenu from "../../components/ResumeMenu";
 import "./index.scss";
 
 const slideDown = {
@@ -57,15 +57,9 @@ const Index = () => {
             </NavLink>
           </li>
           <li>
-            <a
-              href={resume}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-secondary resume-btn"
-              onClick={toggleMenu}
-            >
+            <ResumeMenu triggerClassName="btn btn-secondary resume-btn" onSelect={toggleMenu}>
               Resume
-            </a>
+            </ResumeMenu>
           </li>
         </ul>
       </motion.nav>
